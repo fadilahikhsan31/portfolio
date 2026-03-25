@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fadilah Ikhsan | Administrative & Excel Data Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0f172a',
+                        secondary: '#1e293b',
+                        accent: '#06b6d4',
+                        'accent-hover': '#0891b2',
+                        surface: '#f8fafc',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark-glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.3);
+        }
+        .skill-bar {
+            transition: width 1.5s ease-out;
+        }
+        .nav-blur {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .excel-grid {
+            background-image: 
+                linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-surface overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-blur border-b border-slate-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-accent to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                        FI
+                    </div>
+                    <span class="font-display font-bold text-xl text-primary">Fadilah Ikhsan</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-600 hover:text-accent font-medium transition-colors">Tentang</a>
+                    <a href="#skills" class="text-slate-600 hover:text-accent font-medium transition-colors">Keahlian</a>
+                    <a href="#portfolio" class="text-slate-600 hover:text-accent font-medium transition-colors">Portofolio</a>
+                    <a href="#experience" class="text-slate-600 hover:text-accent font-medium transition-colors">Pengalaman</a>
+                    <a href="#contact" class="px-6 py-2 bg-primary text-white rounded-full font-medium hover:bg-accent transition-all hover:shadow-lg hover:shadow-accent/30">
+                        Kontak
+                    </a>
+                </div>
+
+                <button class="md:hidden text-slate-600 hover:text-accent" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#about" class="block px-3 py-2 text-slate-600 hover:text-accent hover:bg-slate-50 rounded-lg">Tentang</a>
+                <a href="#skills" class="block px-3 py-2 text-slate-600 hover:text-accent hover:bg-slate-50 rounded-lg">Keahlian</a>
+                <a href="#portfolio" class="block px-3 py-2 text-slate-600 hover:text-accent hover:bg-slate-50 rounded-lg">Portofolio</a>
+                <a href="#experience" class="block px-3 py-2 text-slate-600 hover:text-accent hover:bg-slate-50 rounded-lg">Pengalaman</a>
+                <a href="#contact" class="block px-3 py-2 text-accent font-medium">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 excel-grid opacity-30"></div>
+        <div class="absolute top-20 right-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-slide-up">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-medium text-sm mb-6 border border-accent/20">
+                    <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+                    Tersedia untuk Kerja Sama
+                </div>
+                
+                <h1 class="font-display text-5xl md:text-7xl font-bold text-primary mb-6 leading-tight">
+                    Administrative &<br>
+                    <span class="gradient-text">Excel Data Specialist</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+                    Profesional administrasi dengan keahlian dalam pengelolaan data operasional, 
+                    dokumentasi, dan penyusunan laporan menggunakan Microsoft Excel.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#portfolio" class="px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-accent transition-all hover:shadow-xl hover:shadow-accent/30 hover:-translate-y-1 flex items-center gap-2">
+                        <span>Lihat Portofolio</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 bg-white text-primary border-2 border-primary/20 rounded-full font-semibold hover:border-accent hover:text-accent transition-all hover:-translate-y-1">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <div class="p-6 rounded-2xl glass-card hover-lift">
+                    <div class="text-3xl font-bold text-accent mb-1 counter" data-target="4">0</div>
+                    <div class="text-sm text-slate-600">Proyek Excel</div>
+                </div>
+                <div class="p-6 rounded-2xl glass-card hover-lift">
+                    <div class="text-3xl font-bold text-accent mb-1">100%</div>
+                    <div class="text-sm text-slate-600">Akurasi Data</div>
+                </div>
+                <div class="p-6 rounded-2xl glass-card hover-lift">
+                    <div class="text-3xl font-bold text-accent mb-1 counter" data-target="5">0</div>
+                    <div class="text-sm text-slate-600">Posisi</div>
+                </div>
+                <div class="p-6 rounded-2xl glass-card hover-lift">
+                    <div class="text-3xl font-bold text-accent mb-1">24/7</div>
+                    <div class="text-sm text-slate-600">Support</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-slate-400 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-accent to-blue-600 rounded-3xl opacity-20 blur-2xl"></div>
+                        <div class="relative bg-slate-100 rounded-3xl p-8 md:p-12 aspect-square flex items-center justify-center overflow-hidden">
+                            <div class="text-center">
+                                <div class="w-32 h-32 mx-auto bg-gradient-to-br from-accent to-blue-600 rounded-full flex items-center justify-center text-white text-5xl font-bold mb-6 shadow-2xl">
+                                    FI
+                                </div>
+                                <h3 class="font-display text-2xl font-bold text-primary mb-2">Fadilah Ikhsan</h3>
+                                <p class="text-slate-600">Bogor, Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal">
+                    <h2 class="font-display text-4xl font-bold text-primary mb-6">Tentang Saya</h2>
+                    <div class="space-y-4 text-slate-600 text-lg leading-relaxed">
+                        <p>
+                            Saya adalah profesional administrasi dengan pengalaman dalam pengelolaan data operasional, 
+                            dokumentasi, serta penyusunan laporan. Berpengalaman bekerja di lingkungan administrasi, 
+                            survey lapangan, dan layanan digital dengan fokus pada akurasi data dan efisiensi proses kerja.
+                        </p>
+                        <p>
+                            Saya terbiasa menggunakan Microsoft Excel untuk data cleaning, pembuatan laporan, 
+                            pivot table, serta monitoring operasional harian. Memiliki kemampuan koordinasi tim, 
+                            pengolahan data, dan dokumentasi administrasi yang baik.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium border border-accent/20">
+                            <i class="fas fa-check-circle mr-2"></i>Detail Oriented
+                        </span>
+                        <span class="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium border border-accent/20">
+                            <i class="fas fa-check-circle mr-2"></i>Problem Solver
+                        </span>
+                        <span class="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium border border-accent/20">
+                            <i class="fas fa-check-circle mr-2"></i>Team Player
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-slate-50 relative overflow-hidden">
+        <div class="absolute inset-0 excel-grid opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl font-bold text-primary mb-4">Keahlian Teknis</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Kombinasi keahlian teknis dan soft skills untuk mendukung efisiensi operasional</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Excel Skills -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift scroll-reveal border border-slate-100">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center text-green-600 text-2xl mb-6">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-primary mb-4">Microsoft Excel</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-table text-accent mr-3"></i>
+                            Pivot Table & Chart
+                        </li>
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-calculator text-accent mr-3"></i>
+                            SUMIF, COUNTIF, VLOOKUP
+                        </li>
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-filter text-accent mr-3"></i>
+                            Data Validation & Cleaning
+                        </li>
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-palette text-accent mr-3"></i>
+                            Conditional Formatting
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Data Processing -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift scroll-reveal border border-slate-100" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-2xl mb-6">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-primary mb-4">Data Processing</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-broom text-accent mr-3"></i>
+                            Data Cleaning
+                        </li>
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-chart-line text-accent mr-3"></i>
+                            Analisis & Reporting
+                        </li>
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-boxes text-accent mr-3"></i>
+                            Inventory Tracking
+                        </li>
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-users text-accent mr-3"></i>
+                            Customer Data Management
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Administration -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift scroll-reveal border border-slate-100" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-2xl mb-6">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-primary mb-4">Administrasi</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-file-alt text-accent mr-3"></i>
+                            Document Management
+                        </li>
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-file-word text-accent mr-3"></i>
+                            Word & PowerPoint
+                        </li>
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-clock text-accent mr-3"></i>
+                            Time Management
+                        </li>
+                        <li class="flex items-center text-slate-600">
+                            <i class="fas fa-handshake text-accent mr-3"></i>
+                            Team Coordination
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Skill Bars -->
+            <div class="mt-16 bg-white rounded-2xl p-8 shadow-lg border border-slate-100 scroll-reveal">
+                <h3 class="font-display text-xl font-bold text-primary mb-8 text-center">Tingkat Keahlian</h3>
+                <div class="space-y-6 max-w-3xl mx-auto">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-slate-700">Microsoft Excel</span>
+                            <span class="text-accent font-bold">95%</span>
+                        </div>
+                        <div class="h-3 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-accent to-blue-500 rounded-full skill-bar" style="width: 0%" data-width="95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-slate-700">Data Processing</span>
+                            <span class="text-accent font-bold">90%</span>
+                        </div>
+                        <div class="h-3 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-accent to-blue-500 rounded-full skill-bar" style="width: 0%" data-width="90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-slate-700">Administrative Reporting</span>
+                            <span class="text-accent font-bold">88%</span>
+                        </div>
+                        <div class="h-3 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-accent to-blue-500 rounded-full skill-bar" style="width: 0%" data-width="88%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium text-slate-700">Dashboard Creation</span>
+                            <span class="text-accent font-bold">85%</span>
+                        </div>
+                        <div class="h-3 bg-slate-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-accent to-blue-500 rounded-full skill-bar" style="width: 0%" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl font-bold text-primary mb-4">Portofolio Proyek</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Berbagai proyek Excel yang menunjukkan kemampuan analisis data dan pembuatan laporan</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover-lift scroll-reveal">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-emerald-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-chart-bar text-white/20 text-8xl transform group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white text-sm font-medium">
+                            Excel
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-display text-2xl font-bold text-primary mb-3">Sales & Service Monthly Report</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            Laporan bulanan untuk monitoring aktivitas layanan dan penjualan berdasarkan data transaksi. 
+                            Mensimulasikan kebutuhan administrasi kantor dalam rekap data operasional.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                Data Cleaning menggunakan filter dan sort
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                Rekap bulanan dengan SUMIF
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                Pivot Table untuk analisis kategori layanan
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-green-500 mr-3"></i>
+                                Chart untuk visualisasi performa bulanan
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">SUMIF</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">Pivot Table</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">Chart</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">Conditional Formatting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover-lift scroll-reveal" style="transition-delay: 100ms;">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-boxes text-white/20 text-8xl transform group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white text-sm font-medium">
+                            Dashboard
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-display text-2xl font-bold text-primary mb-3">Inventory Monitoring Dashboard</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            Dashboard monitoring stok barang untuk kebutuhan operasional kantor. 
+                            Digunakan untuk melihat kondisi stok dan kebutuhan restock secara real-time.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-blue-500 mr-3"></i>
+                                VLOOKUP untuk pengambilan data barang
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-blue-500 mr-3"></i>
+                                IF Formula untuk status stok
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-blue-500 mr-3"></i>
+                                Conditional Formatting (Low Stock Alert)
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-blue-500 mr-3"></i>
+                                Summary Dashboard interaktif
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">VLOOKUP</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">IF Formula</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover-lift scroll-reveal">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-user-clock text-white/20 text-8xl transform group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white text-sm font-medium">
+                            HR
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-display text-2xl font-bold text-primary mb-3">Employee Attendance Recap</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            Rekap absensi karyawan untuk monitoring kehadiran dan produktivitas tim. 
+                            Laporan menjadi lebih sistematis dan mudah dipahami oleh manajemen.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-purple-500 mr-3"></i>
+                                COUNTIF untuk perhitungan hadir
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-purple-500 mr-3"></i>
+                                SUM untuk total jam kerja
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-purple-500 mr-3"></i>
+                                Pivot Table rekap per divisi
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-purple-500 mr-3"></i>
+                                Chart visualisasi kehadiran
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">COUNTIF</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">SUM</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">Data Filter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="group bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 hover-lift scroll-reveal" style="transition-delay: 100ms;">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-headset text-white/20 text-8xl transform group-hover:scale-110 transition-transform duration-500"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white text-sm font-medium">
+                            Service
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="font-display text-2xl font-bold text-primary mb-3">Customer Service Data Report</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            Laporan data layanan pelanggan untuk monitoring jumlah request dan waktu respon. 
+                            Membantu analisis performa layanan dan peningkatan kualitas tim.
+                        </p>
+                        
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-orange-500 mr-3"></i>
+                                Data Sorting & Filtering
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-orange-500 mr-3"></i>
+                                Pivot Table analisis jenis request
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-orange-500 mr-3"></i>
+                                Average formula untuk response time
+                            </div>
+                            <div class="flex items-center text-sm text-slate-600">
+                                <i class="fas fa-check text-orange-500 mr-3"></i>
+                                Summary report otomatis
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">AVERAGE</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">Data Cleaning</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-xs font-medium">Filtering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 bg-slate-50 relative">
+        <div class="absolute inset-0 excel-grid opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 scroll-reveal">
+                <h2 class="font-display text-4xl font-bold text-primary mb-4">Pengalaman Kerja</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">Berbagai pengalaman di bidang administrasi, survey lapangan, dan layanan digital</p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-accent to-blue-600 rounded-full"></div>
+
+                <!-- Experience Items -->
+                <div class="space-y-12">
+                    <!-- Item 1 -->
+                    <div class="relative scroll-reveal">
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 -translate-y-4 w-4 h-4 bg-accent rounded-full border-4 border-white shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pr-12 md:text-right md:ml-auto">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover-lift">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium mb-3">
+                                    <i class="fas fa-broadcast-tower"></i>
+                                    Telecommunications
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-primary mb-2">Administrative Staff</h3>
+                                <p class="text-slate-500 text-sm mb-3">Operations Department</p>
+                                <ul class="space-y-2 text-slate-600 text-sm">
+                                    <li>• Mengelola data pelanggan dan inventaris operasional</li>
+                                    <li>• Menyusun laporan administrasi harian dan bulanan</li>
+                                    <li>• Mengupdate data operasional menggunakan Excel</li>
+                                    <li>• Koordinasi dengan tim teknis dan vendor</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative scroll-reveal">
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 -translate-y-4 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover-lift">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-3">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    Survey
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-primary mb-2">Field Mapping Specialist</h3>
+                                <p class="text-slate-500 text-sm mb-3">Data Collection</p>
+                                <ul class="space-y-2 text-slate-600 text-sm">
+                                    <li>• Mengelola data survey lapangan</li>
+                                    <li>• Melakukan validasi data dan pelaporan terstruktur</li>
+                                    <li>• Menyusun laporan progress proyek</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative scroll-reveal">
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 -translate-y-4 w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pr-12 md:text-right md:ml-auto">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover-lift">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium mb-3">
+                                    <i class="fas fa-users"></i>
+                                    Coordination
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-primary mb-2">Field Coordinator</h3>
+                                <p class="text-slate-500 text-sm mb-3">Team Management</p>
+                                <ul class="space-y-2 text-slate-600 text-sm">
+                                    <li>• Mengawasi pengumpulan data enumerator</li>
+                                    <li>• Validasi data dan monitoring target</li>
+                                    <li>• Penyusunan laporan survey</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative scroll-reveal">
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 -translate-y-4 w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-100 hover-lift">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium mb-3">
+                                    <i class="fas fa-laptop"></i>
+                                    Digital
+                                </div>
+                                <h3 class="font-display text-xl font-bold text-primary mb-2">Digital Representative</h3>
+                                <p class="text-slate-500 text-sm mb-3">Customer Service</p>
+                                <ul class="space-y-2 text-slate-600 text-sm">
+                                    <li>• Mengelola data pelanggan digital</li>
+                                    <li>• Monitoring layanan dan request customer</li>
+                                    <li>• Penyusunan laporan aktivitas layanan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="py-16 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 scroll-reveal">
+                <h3 class="font-display text-2xl font-bold text-primary">Tools & Software</h3>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8 items-center opacity-70">
+                <div class="flex flex-col items-center gap-2 group hover:opacity-100 transition-opacity">
+                    <i class="fas fa-file-excel text-4xl text-green-600 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-medium text-slate-600">Excel</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 group hover:opacity-100 transition-opacity">
+                    <i class="fas fa-file-word text-4xl text-blue-600 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-medium text-slate-600">Word</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 group hover:opacity-100 transition-opacity">
+                    <i class="fas fa-file-powerpoint text-4xl text-orange-600 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-medium text-slate-600">PowerPoint</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 group hover:opacity-100 transition-opacity">
+                    <i class="fas fa-palette text-4xl text-pink-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-medium text-slate-600">Canva</span>
+                </div>
+                <div class="flex flex-col items-center gap-2 group hover:opacity-100 transition-opacity">
+                    <i class="fas fa-video text-4xl text-black group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-medium text-slate-600">CapCut</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 excel-grid opacity-10"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-accent/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <h2 class="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+                        Mari Bekerja Sama
+                    </h2>
+                    <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                        Tertarik untuk berkolaborasi atau memiliki pertanyaan? 
+                        Saya terbuka untuk peluang kerja sama di bidang administrasi dan data.
+                    </p>
+
+                    <div class="space-y-6">
+                        <a href="mailto:fadilahikhsann@gmail.com" class="flex items-center gap-4 text-white hover:text-accent transition-colors group">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-accent transition-colors">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-400">Email</div>
+                                <div class="font-medium">fadilahikhsann@gmail.com</div>
+                            </div>
+                        </a>
+
+                        <div class="flex items-center gap-4 text-white">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-400">Lokasi</div>
+                                <div class="font-medium">Bogor, Indonesia</div>
+                            </div>
+                        </div>
+
+                        <a href="https://linkedin.com/in/fadilahikhsan" target="_blank" class="flex items-center gap-4 text-white hover:text-accent transition-colors group">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-accent transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm text-slate-400">LinkedIn</div>
+                                <div class="font-medium">linkedin.com/in/fadilahikhsan</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal">
+                    <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
+                        <h3 class="font-display text-2xl font-bold text-white mb-6">Kirim Pesan</h3>
+                        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah terkirim.');">
+                            <div>
+                                <input type="text" placeholder="Nama Anda" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-accent transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Email Anda" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-accent transition-colors">
+                            </div>
+                            <div>
+                                <textarea rows="4" placeholder="Pesan Anda" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-4 bg-accent hover:bg-accent-hover text-white rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-accent/30 flex items-center justify-center gap-2">
+                                <span>Kirim Pesan</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-slate-400 py-8 border-t border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                    FI
+                </div>
+                <span class="font-display font-bold text-white">Fadilah Ikhsan</span>
+            </div>
+            <div class="text-sm">
+                © 2026 Fadilah Ikhsan. All rights reserved.
+            </div>
+            <div class="flex gap-4">
+                <a href="mailto:fadilahikhsann@gmail.com" class="hover:text-accent transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com/in/fadilahikhsan" target="_blank" class="hover:text-accent transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Animate skill bars if inside this element
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+
+                    // Animate counters
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        let current = 0;
+                        const increment = target / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                counter.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current);
+                            }
+                        }, 30);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+
+        // Add active class to elements already in view on load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.scroll-reveal').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
