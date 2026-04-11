@@ -1,1360 +1,614 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fadilah Ikhsan, - Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        glass: {
-                            100: 'rgba(255, 255, 255, 0.1)',
-                            200: 'rgba(255, 255, 255, 0.2)',
-                            300: 'rgba(255, 255, 255, 0.3)',
-                        }
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-up': 'slideUp 0.6s ease-out',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
-            min-height: 100vh;
-        }
-        
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        }
-        
-        .glass-nav {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .gradient-border {
-            position: relative;
-            background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
-        }
-        
-        .gradient-border::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            padding: 1px;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-        }
-        
-    .section-content {
-    display: none;
-    min-height: 100vh;
-    padding: 80px 20px;
-    box-sizing: border-box;
-}
-
-.section-content.active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-	text-align: center;
-}
-
-/* BACKGROUND */
-#home {
-    background: 
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-        url('Bg1.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-#skills {
-    background: 
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-        url('Bg2.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-#portfolio {
-    background: 
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-        url('Bg3.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-#experience {
-    background: 
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-        url('Bg4.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-#education {
-    background: 
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-        url('Bg5.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-#contact {
-    background: 
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
-        url('Bg6.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-        
-        .nav-link {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #60a5fa, #a78bfa);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        
-        .skill-bar {
-            transition: width 1s ease-out;
-        }
-        
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(96, 165, 250, 0.2);
-        }
-        
-        .blob {
-            position: absolute;
-            filter: blur(80px);
-            opacity: 0.4;
-            z-index: -1;
-        }
-		.blob {
-    position: absolute;
-    filter: blur(80px);
-    opacity: 0.4;
-    z-index: -1;
-
-    max-width: 100vw;   /* 🔥 ini fix utama */
-}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fadilah Ikhsan, S.H. — Operations & Field Coordination</title>
+<meta name="description" content="Portfolio Fadilah Ikhsan, S.H. — Operations & Administrative Coordinator dengan pengalaman field coordination, data management, dan AI-assisted workflow di Jabodetabek dan seluruh Jawa-Bali.">
+<meta property="og:title" content="Fadilah Ikhsan, S.H. — Portfolio">
+<meta property="og:description" content="Operations professional yang melek teknologi — dari koordinasi lapangan hingga workflow berbasis AI.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--bg:#0D1117;--bg2:#111318;--card:#161B22;--card2:#1C2128;--border:rgba(255,255,255,0.07);--teal:#2DD4BF;--teal2:#14B8A6;--gold:#F59E0B;--text:#E6EDF3;--muted:#7D8590;--muted2:#A0ADB8}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.35}
+#sp{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:10000;width:0%;transition:width .1s}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,17,23,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.ni{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nl{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);cursor:pointer}
+.nl span{color:var(--teal)}
+.nls{display:flex;gap:4px;list-style:none}
+.nls a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;padding:6px 14px;border-radius:6px;transition:all .2s;cursor:pointer}
+.nls a:hover,.nls a.active{color:var(--text);background:rgba(45,212,191,.08)}
+.nls a.active{color:var(--teal)}
+.hbg{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer;font-size:1rem}
+.mm{display:none;background:var(--bg2);border-top:1px solid var(--border);padding:12px 24px 16px;flex-direction:column;gap:4px}
+.mm a{color:var(--muted2);text-decoration:none;font-size:.9rem;padding:10px 12px;border-radius:8px;cursor:pointer;transition:all .2s}
+.mm a:hover{background:rgba(255,255,255,.05);color:var(--text)}
+.mm.open{display:flex}
+.section{display:none;min-height:100vh;padding-top:64px;position:relative;overflow:hidden}
+.section.active{display:block}
+@keyframes fs{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.sf{animation:fs .4s ease}
+.con{max-width:1100px;margin:0 auto;padding:60px 24px}
+.sh{text-align:center;margin-bottom:56px}
+.stag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.2);padding:4px 14px;border-radius:20px;margin-bottom:16px}
+.stit{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:800;letter-spacing:-.03em;color:var(--text);line-height:1.1}
+.stit span{color:var(--teal)}
+.sdesc{color:var(--muted);font-size:1rem;margin-top:12px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+/* HOME */
+#home{background:var(--bg);display:none}
+#home.active{display:flex;align-items:center}
+#hc{position:absolute;inset:0;z-index:0}
+.hcon{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:40px 24px 60px;width:100%}
+.hg{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hbdg{display:inline-flex;align-items:center;gap:8px;background:rgba(45,212,191,.06);border:1px solid rgba(45,212,191,.18);padding:6px 14px;border-radius:20px;font-size:.75rem;color:var(--teal);font-weight:500;margin-bottom:24px}
+.hbdg .dot{width:6px;height:6px;background:var(--teal);border-radius:50%;animation:pd 2s infinite}
+@keyframes pd{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hn{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:8px}
+.hn .sh2{color:var(--teal)}
+.hty{font-size:clamp(1rem,2.5vw,1.15rem);color:var(--muted2);font-weight:400;min-height:1.8em;margin-bottom:20px}
+.hty .cur{display:inline-block;width:2px;height:1em;background:var(--teal);margin-left:2px;vertical-align:middle;animation:bl .8s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
+.htag{color:var(--muted);font-size:.92rem;line-height:1.7;margin-bottom:32px;max-width:440px}
+.hloc{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:.85rem;margin-bottom:36px}
+.hloc i{color:var(--teal);font-size:.75rem}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
+.bp{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#0D1117;font-weight:700;font-size:.875rem;padding:12px 24px;border-radius:8px;border:none;cursor:pointer;text-decoration:none;transition:all .2s;font-family:'DM Sans',sans-serif}
+.bp:hover{background:var(--teal2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(45,212,191,.25)}
+.bo{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);font-weight:500;font-size:.875rem;padding:12px 24px;border-radius:8px;border:1px solid var(--border);cursor:pointer;text-decoration:none;transition:all .2s;font-family:'DM Sans',sans-serif}
+.bo:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.04);transform:translateY(-2px)}
+.bg2{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gold);font-weight:500;font-size:.875rem;padding:12px 24px;border-radius:8px;border:1px solid rgba(245,158,11,.3);cursor:pointer;text-decoration:none;transition:all .2s;font-family:'DM Sans',sans-serif}
+.bg2:hover{background:rgba(245,158,11,.08);transform:translateY(-2px)}
+.hsc{display:flex;gap:10px}
+.si{width:38px;height:38px;border-radius:8px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.85rem;transition:all .2s}
+.si:hover{border-color:var(--teal);color:var(--teal);background:rgba(45,212,191,.06)}
+.hr{display:flex;flex-direction:column;align-items:center;gap:28px}
+.pw{position:relative;width:220px;height:220px}
+.pr{position:absolute;inset:-8px;border-radius:50%;background:conic-gradient(var(--teal),var(--gold),var(--teal));animation:sr 8s linear infinite;opacity:.5}
+@keyframes sr{to{transform:rotate(360deg)}}
+.pri{position:absolute;inset:-4px;border-radius:50%;background:var(--bg)}
+.hph{position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:center;z-index:1;border:3px solid var(--card2)}
+.pf{position:relative;width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,var(--teal2),#0F766E);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:white;z-index:1}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:340px}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;transition:all .3s}
+.sc:hover{border-color:rgba(45,212,191,.2);transform:translateY(-2px)}
+.sn{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--teal);line-height:1;margin-bottom:4px}
+.sl{font-size:.72rem;color:var(--muted);line-height:1.3}
+/* SKILLS */
+#skills{background:var(--bg2)}
+#skc{position:absolute;inset:0;z-index:0;opacity:.4}
+#skills .con{position:relative;z-index:1}
+.skgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.skcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;transition:all .3s}
+.skcard:hover{border-color:rgba(45,212,191,.15);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.skch{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.skie{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.skie.t{background:rgba(45,212,191,.12);color:var(--teal)}
+.skie.g{background:rgba(245,158,11,.12);color:var(--gold)}
+.skie.b{background:rgba(96,165,250,.12);color:#60A5FA}
+.skie.gr{background:rgba(74,222,128,.12);color:#4ADE80}
+.skct{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--text)}
+.bg{display:flex;flex-wrap:wrap;gap:8px}
+.bdg{font-size:.75rem;font-weight:500;padding:5px 12px;border-radius:6px;border:1px solid var(--border);color:var(--muted2);background:rgba(255,255,255,.03);transition:all .2s}
+.bdg:hover{border-color:rgba(45,212,191,.3);color:var(--teal)}
+.bdgip{border-color:rgba(245,158,11,.25);color:var(--gold);background:rgba(245,158,11,.05)}
+.bdgip::after{content:' •';opacity:.6}
+.ts{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-top:20px}
+.tsti{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:20px;text-align:center}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:16px;justify-items:center}
+.ti{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 8px;border-radius:10px;border:1px solid transparent;transition:all .2s;width:100%;text-align:center}
+.ti:hover{background:rgba(255,255,255,.03);border-color:var(--border)}
+.ti i{font-size:1.5rem}
+.ti span{font-size:.68rem;color:var(--muted);line-height:1.2}
+/* PORTFOLIO */
+#portfolio{background:var(--bg)}
+#pc{position:absolute;inset:0;z-index:0}
+#portfolio .con{position:relative;z-index:1}
+.pgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.fc{grid-column:span 3;background:var(--card);border:1px solid rgba(45,212,191,.2);border-radius:16px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;transition:all .3s;position:relative;overflow:hidden}
+.fc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--gold))}
+.fc:hover{border-color:rgba(45,212,191,.35);box-shadow:0 20px 60px rgba(45,212,191,.08)}
+.pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .3s;cursor:pointer}
+.pcard:hover{border-color:rgba(45,212,191,.15);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.pct{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px;gap:12px}
+.pic{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.pb{font-size:.68rem;font-weight:600;padding:4px 10px;border-radius:20px;white-space:nowrap}
+.ptit{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text);margin-bottom:4px;line-height:1.3}
+.pco{font-size:.78rem;color:var(--muted);margin-bottom:12px}
+.pds{font-size:.83rem;color:var(--muted2);line-height:1.65;margin-bottom:16px}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.ptag{font-size:.68rem;padding:3px 9px;border-radius:4px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted)}
+.pdet{display:none}
+.pdet.open{display:block}
+.pdet ul{list-style:none;margin-bottom:14px}
+.pdet li{font-size:.8rem;color:var(--muted2);padding:4px 0 4px 16px;position:relative;line-height:1.5}
+.pdet li::before{content:'→';position:absolute;left:0;color:var(--teal);font-size:.7rem}
+.tbtn{font-size:.75rem;color:var(--teal);background:none;border:none;cursor:pointer;padding:0;font-family:'DM Sans',sans-serif;transition:opacity .2s}
+.tbtn:hover{opacity:.7}
+.lb{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:600;color:#4ADE80;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);padding:4px 10px;border-radius:20px}
+.ld{width:5px;height:5px;background:#4ADE80;border-radius:50%;animation:pd 1.5s infinite}
+/* EXPERIENCE */
+#experience{background:var(--bg2)}
+#ec{position:absolute;inset:0;z-index:0;opacity:.3}
+#experience .con{position:relative;z-index:1}
+.egrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ebl{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}
+.eblt{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.eblt i{color:var(--teal)}
+.tl{position:relative;padding-left:24px}
+.tl::before{content:'';position:absolute;left:7px;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--teal),transparent)}
+.tli{position:relative;margin-bottom:28px}
+.tli:last-child{margin-bottom:0}
+.tld{position:absolute;left:-21px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--teal);border:2px solid var(--bg2)}
+.tlp{font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--teal);text-transform:uppercase;margin-bottom:4px}
+.tlr{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:2px}
+.tlc{font-size:.8rem;color:var(--gold);margin-bottom:8px;font-weight:500}
+.tldesc{font-size:.8rem;color:var(--muted);line-height:1.6}
+.tldesc li{padding:2px 0 2px 12px;position:relative;list-style:none}
+.tldesc li::before{content:'·';position:absolute;left:0;color:var(--teal)}
+.og{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:0}
+.oc{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:16px;text-align:center;transition:all .2s}
+.oc:hover{border-color:rgba(45,212,191,.15);transform:translateY(-2px)}
+.oc i{font-size:1.4rem;color:var(--teal);margin-bottom:10px;display:block}
+.oc h4{font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:4px;line-height:1.3}
+.oc p{font-size:.7rem;color:var(--muted);line-height:1.3}
+/* EDUCATION */
+#education{background:var(--bg)}
+#edu{position:absolute;inset:0;z-index:0;opacity:.25}
+#education .con{position:relative;z-index:1}
+.edgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.edcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;transition:all .3s;margin-bottom:20px}
+.edcard:hover{border-color:rgba(45,212,191,.12);transform:translateY(-2px)}
+.edcard:last-child{margin-bottom:0}
+.edct{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.edct i{color:var(--gold)}
+.edi{border-left:2px solid rgba(45,212,191,.3);padding-left:16px;margin-bottom:20px}
+.edi:last-child{margin-bottom:0}
+.edd{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:3px}
+.eds{font-size:.8rem;color:var(--teal);margin-bottom:4px;font-weight:500}
+.edp{font-size:.75rem;color:var(--muted);margin-bottom:4px}
+.edg{display:inline-block;font-size:.72rem;font-weight:600;color:var(--gold);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);padding:2px 10px;border-radius:4px}
+.lgg{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+.lgi{text-align:center}
+.lgc{position:relative;width:80px;height:80px;margin:0 auto 10px}
+.lgc svg{width:80px;height:80px;transform:rotate(-90deg)}
+.lgc .bgt{fill:none;stroke:rgba(255,255,255,.06);stroke-width:3}
+.lgc .prt{fill:none;stroke-width:3;stroke-linecap:round}
+.lgc .lbl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:var(--text)}
+.lgn{font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.lgl{font-size:.68rem;color:var(--muted)}
+.cc{background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(217,119,6,.03));border:1px solid rgba(245,158,11,.2);border-radius:12px;padding:20px;margin-top:16px}
+.cct{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:4px}
+.cci{font-size:.78rem;color:var(--gold);font-weight:500;margin-bottom:4px}
+.ccp{font-size:.72rem;color:var(--muted)}
+/* CONTACT */
+#contact{background:var(--bg2)}
+#contact .con{position:relative;z-index:1}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.cinfo{display:flex;flex-direction:column;gap:12px}
+.ccard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:16px;text-decoration:none;cursor:pointer;transition:all .2s}
+.ccard:hover{border-color:rgba(45,212,191,.2);transform:translateX(4px)}
+.cico{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.ccard h3{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
+.ccard p{font-size:.9rem;color:var(--text);font-weight:500}
+.cfw{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}
+.cft{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:var(--text);margin-bottom:20px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:.78rem;font-weight:600;color:var(--muted2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.fg input,.fg textarea{width:100%;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:all .2s;resize:none}
+.fg input:focus,.fg textarea:focus{border-color:rgba(45,212,191,.4);background:rgba(45,212,191,.03)}
+.ww{position:absolute;bottom:0;left:0;right:0;z-index:0;opacity:.12}
+footer{background:var(--bg);border-top:1px solid var(--border);padding:28px 24px;text-align:center}
+.fi{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:12px}
+.flo{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--text)}
+.flo span{color:var(--teal)}
+.fls{display:flex;gap:16px}
+.fls a{color:var(--muted);text-decoration:none;font-size:.85rem;transition:color .2s}
+.fls a:hover{color:var(--teal)}
+.fcp{font-size:.75rem;color:var(--muted)}
+@media(max-width:900px){.hg{grid-template-columns:1fr;gap:40px}.hr{order:-1}.skgrid{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr 1fr}.fc{grid-column:span 2;grid-template-columns:1fr}.egrid{grid-template-columns:1fr}.edgrid{grid-template-columns:1fr}.cgrid{grid-template-columns:1fr}.og{grid-template-columns:1fr 1fr}.lgg{grid-template-columns:repeat(2,1fr)}.nls{display:none}.hbg{display:block}}
+@media(max-width:600px){.pgrid{grid-template-columns:1fr}.fc{grid-column:span 1}.hbtns{flex-direction:column}.sg{grid-template-columns:1fr 1fr}.og{grid-template-columns:1fr}}
+</style>
 </head>
-<body class="text-gray-100 font-sans antialiased overflow-x-hidden">
+<body>
+<div id="sp"></div>
+<nav id="nav">
+  <div class="ni">
+    <div class="nl" onclick="ss('home')">Fadilah<span>.</span></div>
+    <ul class="nls">
+      <li><a onclick="ss('home')" class="active" data-s="home">Home</a></li>
+      <li><a onclick="ss('skills')" data-s="skills">Skills</a></li>
+      <li><a onclick="ss('portfolio')" data-s="portfolio">Portfolio</a></li>
+      <li><a onclick="ss('experience')" data-s="experience">Experience</a></li>
+      <li><a onclick="ss('education')" data-s="education">Education</a></li>
+      <li><a onclick="ss('contact')" data-s="contact">Contact</a></li>
+    </ul>
+    <button class="hbg" onclick="tm()"><i class="fas fa-bars"></i></button>
+  </div>
+  <div class="mm" id="mm">
+    <a onclick="ss('home')">Home</a>
+    <a onclick="ss('skills')">Skills</a>
+    <a onclick="ss('portfolio')">Portfolio</a>
+    <a onclick="ss('experience')">Experience</a>
+    <a onclick="ss('education')">Education</a>
+    <a onclick="ss('contact')">Contact</a>
+  </div>
+</nav>
 
-
-    <!-- Background Blobs -->
-    <div class="blob bg-blue-500 w-96 h-96 rounded-full top-0 left-0 -translate-x-1/2 -translate-y-1/2"></div>
-    <div class="blob bg-purple-500 w-96 h-96 rounded-full bottom-0 right-0 translate-x-1/2 translate-y-1/2"></div>
-
-    <!-- Navigation -->
-    <nav class="glass-nav fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pr-3">
-            <div class="flex items-center justify-between h-16 md:h-20">
-                <div class="flex-shrink-0 cursor-pointer" onclick="showSection('home')">
-                    <span class="text-2xl font-bold gradient-text">Fadilah Ikhsan </span>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <button onclick="showSection('home')" class="nav-link active px-3 py-2 text-sm font-medium text-white hover:text-blue-400 transition-colors" data-section="home">Home</button>
-                        <button onclick="showSection('skills')" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-blue-400 transition-colors" data-section="skills">Skills</button>
-                        <button onclick="showSection('portfolio')" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-blue-400 transition-colors" data-section="portfolio">Portfolio</button>
-                        <button onclick="showSection('experience')" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-blue-400 transition-colors" data-section="experience">Experience</button>
-                        <button onclick="showSection('education')" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-blue-400 transition-colors" data-section="education">Education</button>
-                        <button onclick="showSection('contact')" class="nav-link px-3 py-2 text-sm font-medium text-gray-300 hover:text-blue-400 transition-colors" data-section="contact">Contact</button>
-                    </div>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden pr-2">
-    <button onclick="toggleMobileMenu()" class="text-gray-300 hover:text-white focus:outline-none p-3">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
+<!-- HOME -->
+<section id="home" class="section active">
+  <canvas id="hc"></canvas>
+  <div class="hcon">
+    <div class="hg">
+      <div>
+        <div class="hbdg"><span class="dot"></span>Available for opportunities</div>
+        <h1 class="hn">Fadilah Ikhsan,<br><span class="sh2">S.H.</span></h1>
+        <div class="hty"><span id="tt"></span><span class="cur"></span></div>
+        <p class="htag">Operations professional yang melek teknologi — dari koordinasi lapangan 20+ tim enumerator hingga workflow berbasis AI dan pengembangan web.</p>
+        <div class="hloc"><i class="fas fa-map-marker-alt"></i><span>Bogor, Jawa Barat, Indonesia</span></div>
+        <div class="hbtns">
+          <button class="bp" onclick="ss('portfolio')"><i class="fas fa-briefcase"></i> Lihat Portfolio</button>
+          <a class="bg2" href="CV_Fadilah_Ikhsan.pdf" download><i class="fas fa-download"></i> Download CV</a>
+          <button class="bo" onclick="ss('contact')"><i class="fas fa-envelope"></i> Kontak</button>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass-nav border-t border-white/10 w-full">
-            <div class="px-4 pt-3 pb-4 space-y-2">
-                <button onclick="showSection('home')" class="block w-full text-left px-3 py-2 text-base font-medium text-white hover:bg-white/10 rounded-md transition-colors">Home</button>
-                <button onclick="showSection('skills')" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/10 rounded-md transition-colors">Skills</button>
-                <button onclick="showSection('portfolio')" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/10 rounded-md transition-colors">Portfolio</button>
-                <button onclick="showSection('experience')" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/10 rounded-md transition-colors">Experience</button>
-                <button onclick="showSection('education')" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/10 rounded-md transition-colors">Education</button>
-                <button onclick="showSection('contact')" class="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/10 rounded-md transition-colors">Contact</button>
-            </div>
+        <div class="hsc">
+          <a href="mailto:fadilahikhsann@gmail.com" class="si"><i class="fas fa-envelope"></i></a>
+          <a href="https://linkedin.com/in/fadilahikhsan" target="_blank" class="si"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://projectguyub10.netlify.app/" target="_blank" class="si"><i class="fas fa-globe"></i></a>
+          <a href="tel:083874092236" class="si"><i class="fas fa-phone"></i></a>
         </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen">
-
-        <!-- Home Section -->
-        <section id="home" class="section-content active">
-            <div class="flex flex-col items-center justify-start min-h-[80vh] text-center pt-16 md:justify-center md:pt-0">
-                <div class="animate-slide-up">
-                    <div class="mb-8 relative inline-block">
-                        <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-                        <div class="mb-6 flex justify-center relative">
-    <div class="absolute w-40 h-40 bg-blue-500 blur-3xl opacity-20 rounded-full"></div>
-    <img src="PP1.png" 
-class="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover object-center shadow-2xl border-4 border-white/20">
-</div>
-                        </div>
-                    </div>
-                    
-                    <h1 class="text-4xl md:text-6xl font-bold mt-2 mb-4 text-white">
-                        Fadilah Ikhsan, <span class="gradient-text">S.H</span>
-                    </h1>
-                    
-                    <p class="text-lg md:text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
-                        Operations, Data & Field Coordination Specialist
-                    </p>
-                    
-                    <div class="flex items-center justify-center gap-2 text-gray-400 mb-12">
-                        <i class="fas fa-map-marker-alt text-blue-400"></i>
-                        <span>Bogor, Jawa Barat, Indonesia</span>
-                    </div>
-
-                    <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-                        Profesional dengan pengalaman dalam administrasi operasional, pengolahan data Excel, koordinasi tim lapangan, leadership, public speaking, serta penggunaan AI tools untuk meningkatkan efisiensi workflow.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button onclick="showSection('portfolio')" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-semibold text-white hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-105 transition-all duration-300">
-                            <i class="fas fa-briefcase mr-2"></i> Lihat Portfolio
-                        </button>
-                        <button onclick="showSection('contact')" class="px-8 py-4 glass-card rounded-full font-semibold text-white hover:bg-white/20 transform hover:scale-105 transition-all duration-300">
-                            <i class="fas fa-envelope mr-2"></i> Hubungi Saya
-                        </button>
-                    </div>
-
-                    <div class="mt-16 flex justify-center gap-6">
-                        <a href="mailto:fadilahikhsann@gmail.com" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-blue-500/20 transition-all duration-300">
-                            <i class="fas fa-envelope text-xl"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/fadilahkhsann" target="_blank" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-blue-500/20 transition-all duration-300">
-                            <i class="fab fa-linkedin-in text-xl"></i>
-                        </a>
-                        <a href="tel:083874092236" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-300 hover:text-white hover:bg-blue-500/20 transition-all duration-300">
-                            <i class="fas fa-phone text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section-content">
-            <div class="py-12">
-                <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Skills & Expertise</h2>
-                <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Kemampuan profesional yang dikembangkan melalui pengalaman kerja dan organisasi</p>
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Core Skills -->
-                    <div class="glass-card rounded-2xl p-8 hover-lift">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-4">
-                                <i class="fas fa-users-cog text-white text-xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-semibold text-white">Core Skills</h3>
-                        </div>
-                        <ul class="space-y-4">
-                            <li class="flex items-start group">
-                                <i class="fas fa-check-circle text-blue-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">Administrative & Operations Coordination</span>
-                            </li>
-                            <li class="flex items-start group">
-                                <i class="fas fa-check-circle text-blue-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">Leadership & Team Coordination</span>
-                            </li>
-                            <li class="flex items-start group">
-                                <i class="fas fa-check-circle text-blue-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">Public Speaking & Communication</span>
-                            </li>
-                            <li class="flex items-start group">
-                                <i class="fas fa-check-circle text-blue-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">Field Survey Coordination</span>
-                            </li>
-                            <li class="flex items-start group">
-                                <i class="fas fa-check-circle text-blue-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">AI Productivity Workflow</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Technical Skills -->
-                    <div class="glass-card rounded-2xl p-8 hover-lift">
-                        <div class="flex items-center mb-6">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mr-4">
-                                <i class="fas fa-laptop-code text-white text-xl"></i>
-                            </div>
-                            <h3 class="text-2xl font-semibold text-white">Technical Skills</h3>
-                        </div>
-                        <ul class="space-y-4">
-                            <li class="flex items-start group">
-                                <i class="fas fa-file-excel text-green-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">Microsoft Excel (Advanced)</span>
-                            </li>
-                            <li class="flex items-start group">
-                                <i class="fas fa-chart-bar text-purple-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">Data Reporting & Administration</span>
-                            </li>
-                            <li class="flex items-start group">
-                                <i class="fab fa-html5 text-orange-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">HTML & CSS (Basic)</span>
-                            </li>
-                            <li class="flex items-start group">
-                                <i class="fab fa-css3-alt text-blue-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">Tailwind CSS (Basic)</span>
-                            </li>
-                            <li class="flex items-start group">
-                                <i class="fas fa-robot text-pink-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">AI-assisted Web Development</span>
-                            </li>
-                            <li class="flex items-start group">
-                                <i class="fas fa-magic text-yellow-400 mt-1 mr-3 group-hover:scale-110 transition-transform"></i>
-                                <span class="text-gray-300 group-hover:text-white transition-colors">AI Productivity Tools</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Skill Bars -->
-                <div class="mt-12 glass-card rounded-2xl p-8">
-                    <h3 class="text-2xl font-semibold text-white mb-8 text-center">Proficiency Levels</h3>
-                    <div class="space-y-6 max-w-3xl mx-auto">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-300">Microsoft Excel</span>
-                                <span class="text-blue-400 font-semibold">95%</span>
-                            </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full skill-bar" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-300">Operations Coordination</span>
-                                <span class="text-blue-400 font-semibold">90%</span>
-                            </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full skill-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-300">Team Leadership</span>
-                                <span class="text-blue-400 font-semibold">85%</span>
-                            </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full skill-bar" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-gray-300">Data Analysis</span>
-                                <span class="text-blue-400 font-semibold">80%</span>
-                            </div>
-                            <div class="h-3 bg-gray-700 rounded-full overflow-hidden">
-                                <div class="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full skill-bar" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-12">
-<h3 class="text-xl font-semibold text-white text-center mb-6">
-Tools & Technologies
-</h3>
-
-<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 justify-items-center">
-
-<div class="flex flex-col items-center">
-<i class="fab fa-microsoft text-4xl text-green-400"></i>
-<span class="text-xs text-gray-400 mt-2">Excel</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fab fa-google text-4xl text-blue-400"></i>
-<span class="text-xs text-gray-400 mt-2">Google Sheets</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-file-word text-4xl text-blue-500"></i>
-<span class="text-xs text-gray-400 mt-2">Word</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-file-powerpoint text-4xl text-orange-400"></i>
-<span class="text-xs text-gray-400 mt-2">PowerPoint</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fab fa-html5 text-4xl text-orange-500"></i>
-<span class="text-xs text-gray-400 mt-2">HTML</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fab fa-css3-alt text-4xl text-blue-500"></i>
-<span class="text-xs text-gray-400 mt-2">CSS</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-wind text-4xl text-cyan-400"></i>
-<span class="text-xs text-gray-400 mt-2">Tailwind</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-robot text-4xl text-purple-400"></i>
-<span class="text-xs text-gray-400 mt-2">AI Tools</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-comment-dots text-4xl text-pink-400"></i>
-<span class="text-xs text-gray-400 mt-2">ChatGPT</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-database text-4xl text-indigo-400"></i>
-<span class="text-xs text-gray-400 mt-2">Data</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-chart-line text-4xl text-green-500"></i>
-<span class="text-xs text-gray-400 mt-2">Reporting</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-users text-4xl text-yellow-400"></i>
-<span class="text-xs text-gray-400 mt-2">Coordination</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-clipboard-list text-4xl text-cyan-300"></i>
-<span class="text-xs text-gray-400 mt-2">Survey</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-calendar-alt text-4xl text-purple-300"></i>
-<span class="text-xs text-gray-400 mt-2">Scheduling</span>
-</div>
-
-<div class="flex flex-col items-center">
-<i class="fas fa-folder-open text-4xl text-amber-400"></i>
-<span class="text-xs text-gray-400 mt-2">Documentation</span>
-</div>
-
-</div>
-</div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="section-content">
-            <div class="py-12">
-                <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Portfolio</h2>
-                <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Berbagai proyek dan pengalaman dalam koordinasi operasional, administrasi data, dan pengembangan sistem</p>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Project 1 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center">
-                                <i class="fas fa-clipboard-list text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">Field Survey</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Koordinasi Survei Lapangan</h3>
-                        <p class="text-gray-400 text-sm mb-4">Cyrus Network</p>
-                        <p class="text-gray-300 text-sm mb-4">Koordinasi survei wawancara tingkat kota/provinsi dengan tim enumerator.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                           <ul class="space-y-2 text-sm text-gray-300">
-
-<li class="flex items-start">
-<i class="fas fa-angle-right text-blue-400 mr-2 mt-1"></i>
-Koordinasi enumerator tingkat kota & provinsi
-</li>
-
-<li class="flex items-start">
-<i class="fas fa-angle-right text-blue-400 mr-2 mt-1"></i>
-Monitoring responden dan kontrol kualitas wawancara
-</li>
-
-<li class="flex items-start">
-<i class="fas fa-angle-right text-blue-400 mr-2 mt-1"></i>
-Validasi data hasil survei sebelum input sistem
-</li>
-
-<li class="flex items-start">
-<i class="fas fa-angle-right text-blue-400 mr-2 mt-1"></i>
-Quality control dan koordinasi revisi data lapangan
-</li>
-
-<li class="flex items-start">
-<i class="fas fa-chart-line text-green-400 mr-2 mt-1"></i>
-Akurasi hasil survei ±96% dibandingkan real count
-</li>
-
-<li class="flex items-start">
-<i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>
-Margin selisih rata-rata ±3-4%
-</li>
-
-<li class="flex items-start">
-<i class="fas fa-calendar text-purple-400 mr-2 mt-1"></i>
-Periode Project: 2023 - 2024
-</li>
-
-<li class="flex items-start">
-<i class="fas fa-users text-cyan-400 mr-2 mt-1"></i>
-Cakupan koordinasi: tingkat kota & provinsi
-</li>
-<div class="mt-3">
-<a href="https://www.csis.or.id/publication/rilis-pers-quick-count-csis-indonesia-dan-cyrus-network/" 
-target="_blank"
-class="text-xs text-blue-400 hover:underline">
-Lihat referensi akurasi survei
-</a>
-</div>
-</ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Field Survey</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Coordination</span>
-                            </div>
-                        </div>
-                        
-                        <div class="text-center mt-2 text-blue-400 text-sm font-medium group-hover:text-blue-300 toggle-text">Klik untuk detail</div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-400 flex items-center justify-center">
-                                <i class="fas fa-file-excel text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">Reporting</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Laporan Operasional Bulanan</h3>
-                        <p class="text-gray-400 text-sm mb-4">PT Inkamnet Nexara Technology</p>
-                        <p class="text-gray-300 text-sm mb-4">Penyusunan laporan operasional berbasis Excel untuk monitoring aktivitas tim di PT Inkamnet Nexera Technology.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li class="flex items-center"><i class="fas fa-angle-right text-green-400 mr-2"></i>Rekap data</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-green-400 mr-2"></i>Analisis laporan</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-green-400 mr-2"></i>Monitoring progress</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-green-400 mr-2"></i>Distribusi laporan</li>
-                            </ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Excel</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Reporting</span>
-                            </div>
-                        </div>
-                        <div class="text-center mt-2 text-green-400 text-sm font-medium group-hover:text-green-300 toggle-text">Klik untuk detail</div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-400 flex items-center justify-center">
-                                <i class="fas fa-chart-line text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">Dashboard</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Dashboard Monitoring Operasional</h3>
-                        <p class="text-gray-400 text-sm mb-4">PT Inkamnet Nexara Technology</p>
-                        <p class="text-gray-300 text-sm mb-4">Pembuatan dashboard monitoring data operasional real-time.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li class="flex items-center"><i class="fas fa-angle-right text-purple-400 mr-2"></i>Pivot table</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-purple-400 mr-2"></i>Visualisasi data</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-purple-400 mr-2"></i>Tracking KPI</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-purple-400 mr-2"></i>Monitoring operasional</li>
-                            </ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Excel</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Dashboard</span>
-                            </div>
-                        </div>
-                        <div class="text-center mt-2 text-purple-400 text-sm font-medium group-hover:text-purple-300 toggle-text">Klik untuk detail</div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-400 flex items-center justify-center">
-                                <i class="fas fa-boxes text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 border border-orange-500/30">Inventory</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">Manajemen Inventaris Kantor</h3>
-                        <p class="text-gray-400 text-sm mb-4">Administration</p>
-                        <p class="text-gray-300 text-sm mb-4">Pengelolaan asset kantor dan monitoring stok barang.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li class="flex items-center"><i class="fas fa-angle-right text-orange-400 mr-2"></i>Tracking asset</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-orange-400 mr-2"></i>Monitoring stok</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-orange-400 mr-2"></i>Koordinasi vendor</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-orange-400 mr-2"></i>Laporan penggunaan</li>
-                            </ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Inventory</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Admin</span>
-                            </div>
-                        </div>
-                        <div class="text-center mt-2 text-orange-400 text-sm font-medium group-hover:text-orange-300 toggle-text">Klik untuk detail</div>
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-400 flex items-center justify-center">
-                                <i class="fas fa-user-clock text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-500/30">Attendance</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-teal-400 transition-colors">Monitoring Absensi Karyawan</h3>
-                        <p class="text-gray-400 text-sm mb-4">HR Support</p>
-                        <p class="text-gray-300 text-sm mb-4">Pengelolaan data absensi dan monitoring keterlambatan.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li class="flex items-center"><i class="fas fa-angle-right text-teal-400 mr-2"></i>Rekap absensi</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-teal-400 mr-2"></i>Validasi data</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-teal-400 mr-2"></i>Monitoring keterlambatan</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-teal-400 mr-2"></i>Laporan absensi</li>
-                            </ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Attendance</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Excel</span>
-                            </div>
-                        </div>
-                        <div class="text-center mt-2 text-teal-400 text-sm font-medium group-hover:text-teal-300 toggle-text">Klik untuk detail</div>
-                    </div>
-<!-- Project Mobile Mapping -->
-<div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-    <div class="flex items-center justify-between mb-4">
-        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-400 flex items-center justify-center">
-            <i class="fas fa-map-marked-alt text-white text-xl"></i>
+      </div>
+      <div class="hr">
+        <div class="pw">
+          <div class="pr"></div>
+          <div class="pri"></div>
+          <img src="PP1.png" alt="Fadilah Ikhsan" class="hph" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="pf" style="display:none;">FI</div>
         </div>
-        <span class="text-xs font-semibold px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-            GIS Mapping
-        </span>
+        <div class="sg">
+          <div class="sc"><div class="sn" data-t="20">0</div><div class="sl">Proyek Survei<br>Dikoordinasikan</div></div>
+          <div class="sc"><div class="sn" data-t="300">0</div><div class="sl">Transaksi Digital<br>Dibantu</div></div>
+          <div class="sc"><div class="sn" data-t="4">0</div><div class="sl">Perusahaan<br>Berpengalaman</div></div>
+          <div class="sc"><div class="sn" data-t="96">0</div><div class="sl">% Akurasi<br>Data Survei</div></div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-        Mobile Mapping & GIS Data Collection
-    </h3>
-
-    <p class="text-gray-400 text-sm mb-4">
-        PT GPS Lands Indosolution
-    </p>
-
-    <p class="text-gray-300 text-sm mb-4">
-        Pengumpulan dan pemetaan data spasial menggunakan GIS untuk mendukung pemetaan area operasional dan validasi lokasi lapangan.
-    </p>
-
-    <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-        <ul class="space-y-2 text-sm text-gray-300">
-            <li class="flex items-center">
-                <i class="fas fa-angle-right text-cyan-400 mr-2"></i>
-                Pengumpulan data GIS lapangan
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-angle-right text-cyan-400 mr-2"></i>
-                GPS tracking rute kendaraan
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-angle-right text-cyan-400 mr-2"></i>
-                Validasi koordinat lokasi
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-angle-right text-cyan-400 mr-2"></i>
-                Mapping area operasional
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-angle-right text-green-400 mr-2"></i>
-                Pengumpulan 100+ titik koordinat
-            </li>
-            <li class="flex items-center">
-                <i class="fas fa-angle-right text-blue-400 mr-2"></i>
-                Coverage area hingga 50+ km
-            </li>
-        </ul>
-
-        <div class="mt-3 flex gap-2">
-            <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">GIS</span>
-            <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">GPS</span>
-            <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Mapping</span>
-        </div>
+<!-- SKILLS -->
+<section id="skills" class="section">
+  <canvas id="skc"></canvas>
+  <div class="con">
+    <div class="sh"><div class="stag">Kompetensi</div><h2 class="stit">Skills & <span>Expertise</span></h2><p class="sdesc">Kemampuan yang dibangun dari pengalaman kerja nyata — dari lapangan hingga kantor, dari Excel hingga AI tools</p></div>
+    <div class="skgrid">
+      <div class="skcard"><div class="skch"><div class="skie t"><i class="fas fa-users-cog"></i></div><div class="skct">Operations & Admin</div></div><div class="bg"><span class="bdg">Document Management</span><span class="bdg">Report Preparation</span><span class="bdg">Data Entry & Validation</span><span class="bdg">Administrative Support</span><span class="bdg">Inventory Coordination</span><span class="bdg">Vendor Communication</span></div></div>
+      <div class="skcard"><div class="skch"><div class="skie g"><i class="fas fa-map-marked-alt"></i></div><div class="skct">Field & Leadership</div></div><div class="bg"><span class="bdg">Field Survey Coordination</span><span class="bdg">Team Leadership (20–30 org)</span><span class="bdg">Multi-region Management</span><span class="bdg">Quality Control</span><span class="bdg">Enumerator Supervision</span><span class="bdg">GPS & GIS Field Ops</span></div></div>
+      <div class="skcard"><div class="skch"><div class="skie b"><i class="fas fa-laptop-code"></i></div><div class="skct">Technical Tools</div></div><div class="bg"><span class="bdg">Microsoft Excel</span><span class="bdg">Pivot Table & VLOOKUP</span><span class="bdg">Google Workspace</span><span class="bdg">GPS Device Operation</span><span class="bdg">AI Productivity Tools</span><span class="bdg">ChatGPT & Claude</span></div></div>
+      <div class="skcard"><div class="skch"><div class="skie gr"><i class="fas fa-code"></i></div><div class="skct">Currently Learning</div></div><div class="bg"><span class="bdg bdgip">HTML & CSS</span><span class="bdg bdgip">JavaScript</span><span class="bdg bdgip">Web Deployment</span><span class="bdg bdgip">Netlify & GitHub Pages</span><span class="bdg bdgip">Tailwind CSS</span><span class="bdg bdgip">AI-assisted Dev</span></div></div>
     </div>
+    <div class="ts"><div class="tsti">Tools & Technologies</div><div class="tg">
+      <div class="ti"><i class="fab fa-microsoft" style="color:#4ADE80"></i><span>Excel</span></div>
+      <div class="ti"><i class="fab fa-google" style="color:#60A5FA"></i><span>Google Workspace</span></div>
+      <div class="ti"><i class="fas fa-file-word" style="color:#3B82F6"></i><span>Word</span></div>
+      <div class="ti"><i class="fas fa-file-powerpoint" style="color:#F97316"></i><span>PowerPoint</span></div>
+      <div class="ti"><i class="fab fa-html5" style="color:#F97316"></i><span>HTML</span></div>
+      <div class="ti"><i class="fab fa-css3-alt" style="color:#60A5FA"></i><span>CSS</span></div>
+      <div class="ti"><i class="fab fa-js" style="color:#FBBF24"></i><span>JavaScript</span></div>
+      <div class="ti"><i class="fas fa-robot" style="color:#A78BFA"></i><span>AI Tools</span></div>
+      <div class="ti"><i class="fas fa-map-marked-alt" style="color:#2DD4BF"></i><span>GPS/GIS</span></div>
+      <div class="ti"><i class="fas fa-cloud-upload-alt" style="color:#34D399"></i><span>Netlify</span></div>
+      <div class="ti"><i class="fab fa-github" style="color:#E6EDF3"></i><span>GitHub</span></div>
+      <div class="ti"><i class="fas fa-chart-bar" style="color:#F59E0B"></i><span>Dashboard</span></div>
+    </div></div>
+  </div>
+</section>
 
-    <div class="text-center mt-2 text-cyan-400 text-sm font-medium group-hover:text-cyan-300 toggle-text">
-        Klik untuk detail
-    </div>
-</div>
-                    <!-- Project 6 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-400 flex items-center justify-center">
-                                <i class="fas fa-headset text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Service</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Administrasi Layanan Pelanggan</h3>
-                        <p class="text-gray-400 text-sm mb-4">Customer Support</p>
-                        <p class="text-gray-300 text-sm mb-4">Administrasi data customer dan monitoring request.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li class="flex items-center"><i class="fas fa-angle-right text-indigo-400 mr-2"></i>Input data</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-indigo-400 mr-2"></i>Monitoring request</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-indigo-400 mr-2"></i>Dokumentasi</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-indigo-400 mr-2"></i>Koordinasi tim</li>
-                            </ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Customer Service</span>
-                            </div>
-                        </div>
-                        <div class="text-center mt-2 text-indigo-400 text-sm font-medium group-hover:text-indigo-300 toggle-text">Klik untuk detail</div>
-                    </div>
-
-                    <!-- Project 7 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center">
-                                <i class="fas fa-check-double text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-red-500/20 text-red-300 border border-red-500/30">Quality Control</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">Sistem Validasi Data Survey</h3>
-                        <p class="text-gray-400 text-sm mb-4">Data Quality</p>
-                        <p class="text-gray-300 text-sm mb-4">Validasi dan quality control data survey lapangan.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li class="flex items-center"><i class="fas fa-angle-right text-red-400 mr-2"></i>Validasi data</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-red-400 mr-2"></i>Data cleaning</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-red-400 mr-2"></i>Quality control</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-red-400 mr-2"></i>Reporting</li>
-                            </ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Survey</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">QC</span>
-                            </div>
-                        </div>
-                        <div class="text-center mt-2 text-red-400 text-sm font-medium group-hover:text-red-300 toggle-text">Klik untuk detail</div>
-                    </div>
-
-                    <!-- Project 8 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-400 flex items-center justify-center">
-                                <i class="fas fa-robot text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">AI Automation</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-violet-400 transition-colors">Workflow Laporan Berbasis AI</h3>
-                        <p class="text-gray-400 text-sm mb-4">Automation</p>
-                        <p class="text-gray-300 text-sm mb-4">Automasi pembuatan laporan menggunakan AI tools.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li class="flex items-center"><i class="fas fa-angle-right text-violet-400 mr-2"></i>Automasi laporan</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-violet-400 mr-2"></i>Summarizing data</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-violet-400 mr-2"></i>Dokumentasi AI</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-violet-400 mr-2"></i>Efisiensi workflow</li>
-                            </ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">AI</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Automation</span>
-                            </div>
-                        </div>
-                        <div class="text-center mt-2 text-violet-400 text-sm font-medium group-hover:text-violet-300 toggle-text">Klik untuk detail</div>
-                    </div>
-
-                    <!-- Project 9 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-400 flex items-center justify-center">
-                                <i class="fas fa-tasks text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">Leadership</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">Sistem Monitoring Tim Lapangan</h3>
-                        <p class="text-gray-400 text-sm mb-4">Team Management</p>
-                        <p class="text-gray-300 text-sm mb-4">Monitoring performa dan progress tim lapangan.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li class="flex items-center"><i class="fas fa-angle-right text-amber-400 mr-2"></i>Tracking progress</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-amber-400 mr-2"></i>Monitoring target</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-amber-400 mr-2"></i>Koordinasi tim</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-amber-400 mr-2"></i>Pelaporan</li>
-                            </ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Leadership</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Coordination</span>
-                            </div>
-                        </div>
-                        <div class="text-center mt-2 text-amber-400 text-sm font-medium group-hover:text-amber-300 toggle-text">Klik untuk detail</div>
-                    </div>
-
-                    <!-- Project 10 -->
-                    <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer md:col-span-2 lg:col-span-1" onclick="toggleProjectDetails(this)">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                                <i class="fas fa-globe text-white text-xl"></i>
-                            </div>
-                            <span class="text-xs font-semibold px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Web Development</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">Website Informasi Lingkungan RW 10</h3>
-                        <p class="text-gray-400 text-sm mb-4">Community Project</p>
-                        <p class="text-gray-300 text-sm mb-4">Website layanan masyarakat dengan informasi kegiatan, jasa, dan pengaduan.</p>
-                        
-                        <div class="hidden mt-4 pt-4 border-t border-white/10 project-details">
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li class="flex items-center"><i class="fas fa-angle-right text-cyan-400 mr-2"></i>Perancangan struktur website</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-cyan-400 mr-2"></i>Penyusunan konten informasi</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-cyan-400 mr-2"></i>Pengembangan halaman layanan</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-cyan-400 mr-2"></i>Fitur pengaduan warga</li>
-                                <li class="flex items-center"><i class="fas fa-angle-right text-cyan-400 mr-2"></i>Koordinasi kebutuhan masyarakat</li>
-                            </ul>
-                            <div class="mt-3 flex gap-2">
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">HTML</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Community</span>
-                                <span class="text-xs px-2 py-1 rounded bg-white/10 text-gray-300">Public Service</span>
-                            </div>
-                        </div>
-                        <div class="text-center mt-2 text-cyan-400 text-sm font-medium group-hover:text-cyan-300 toggle-text">Klik untuk detail</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="section-content">
-            <div class="py-12">
-                <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Experience</h2>
-                <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Pengalaman kerja profesional dan keorganisasian yang membangun kompetensi leadership dan manajemen</p>
-                
-                <div class="max-w-4xl mx-auto space-y-8">
-                    <!-- Work Experience -->
-                    <div class="glass-card rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-white mb-8 flex items-center">
-                            <i class="fas fa-briefcase text-blue-400 mr-3"></i> Pengalaman Kerja
-                        </h3>
-                        
-                        <div class="space-y-8 relative">
-                            <div class="absolute left-4 top-12 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"></div>
-                            
-                            <div class="relative pl-12 group">
-                                <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 border-4 border-slate-900 group-hover:scale-110 transition-transform"></div>
-                                <div class="glass-card rounded-xl p-6 hover-lift">
-                                    <h4 class="text-xl font-semibold text-white">Administrative Staff</h4>
-                                    <p class="text-blue-400 font-medium mb-2">PT Inkamnet Nexera Technology</p>
-                                    <p class="text-gray-400 text-sm">Pengalaman dalam administrasi operasional dan koordinasi internal.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="relative pl-12 group">
-                                <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 border-4 border-slate-900 group-hover:scale-110 transition-transform"></div>
-                                <div class="glass-card rounded-xl p-6 hover-lift">
-                                    <h4 class="text-xl font-semibold text-white">Field Mapping Specialist</h4>
-                                    <p class="text-purple-400 font-medium mb-2">PT GPS Lands Indosolution</p>
-                                    <p class="text-gray-400 text-sm">Spesialisasi dalam pemetaan lapangan dan pengolahan data geografis.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="relative pl-12 group">
-                                <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-pink-600 border-4 border-slate-900 group-hover:scale-110 transition-transform"></div>
-                                <div class="glass-card rounded-xl p-6 hover-lift">
-                                    <h4 class="text-xl font-semibold text-white">Field Coordinator</h4>
-                                    <p class="text-pink-400 font-medium mb-2">Cyrus Network</p>
-                                    <p class="text-gray-400 text-sm">Koordinasi tim lapangan untuk survei dan pengumpulan data.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="relative pl-12 group">
-                                <div class="absolute left-0 top-1 w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 border-4 border-slate-900 group-hover:scale-110 transition-transform"></div>
-                                <div class="glass-card rounded-xl p-6 hover-lift">
-                                    <h4 class="text-xl font-semibold text-white">Digital Representative</h4>
-                                    <p class="text-amber-400 font-medium mb-2">PT Pegadaian (Persero)</p>
-                                    <p class="text-gray-400 text-sm">Perwakilan digital dalam layanan keuangan dan administrasi.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Organization Experience -->
-                    <div class="glass-card rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-white mb-8 flex items-center">
-                            <i class="fas fa-users text-purple-400 mr-3"></i> Pengalaman Organisasi
-                        </h3>
-                        
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="glass-card rounded-xl p-6 hover-lift border-t-4 border-blue-500">
-                                <i class="fas fa-user-tie text-blue-400 text-3xl mb-4"></i>
-                                <h4 class="text-lg font-semibold text-white mb-2">Sekretaris Bidang Kewirausahaan dan Pengembangan Profesi</h4>
-                                <p class="text-gray-400 text-sm">HMI (Himpunan Mahasiswa Islam)</p>
-                            </div>
-                            
-                            <div class="glass-card rounded-xl p-6 hover-lift border-t-4 border-purple-500">
-                                <i class="fas fa-handshake text-purple-400 text-3xl mb-4"></i>
-                                <h4 class="text-lg font-semibold text-white mb-2">Sekretaris Bidang Eksternal</h4>
-                                <p class="text-gray-400 text-sm">HMJ Hukum Keluarga Islam</p>
-                            </div>
-                            
-                            <div class="glass-card rounded-xl p-6 hover-lift border-t-4 border-green-500">
-                                <i class="fas fa-mosque text-green-400 text-3xl mb-4"></i>
-                                <h4 class="text-lg font-semibold text-white mb-2">Sekretaris Bidang Keagamaan</h4>
-                                <p class="text-gray-400 text-sm">Karang Taruna Desa Cicadas</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section-content">
-            <div class="py-12">
-                <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Education</h2>
-                <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Pendidikan formal, non-formal, sertifikasi, dan kemampuan bahasa</p>
-                
-                <div class="grid lg:grid-cols-2 gap-8 mb-12">
-                    <!-- Formal Education -->
-                    <div class="glass-card rounded-2xl p-8">
-                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-                            <i class="fas fa-graduation-cap text-blue-400 mr-3"></i> Pendidikan Formal
-                        </h3>
-                        
-                        <div class="space-y-6">
-                            <div class="border-l-4 border-blue-500 pl-6 py-2">
-                                <h4 class="text-xl font-semibold text-white">S1 Hukum</h4>
-                                <p class="text-blue-400 mb-1">UIN Sultan Maulana Hasanudin Banten</p>
-                                <p class="text-gray-400 text-sm">Pendidikan tinggi dalam bidang hukum dengan fokus pada analisis dan administrasi.</p>
-                            </div>
-                            
-                            <div class="border-l-4 border-purple-500 pl-6 py-2">
-                                <h4 class="text-xl font-semibold text-white">SMK Teknik Komputer & Jaringan</h4>
-                                <p class="text-purple-400 mb-1">SMK Putra Pelita Tenjolaya</p>
-                                <p class="text-gray-400 text-sm">Dasar teknis dalam komputer, jaringan, dan teknologi informasi.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Non-Formal & Certifications -->
-                    <div class="space-y-8">
-                        <div class="glass-card rounded-2xl p-8">
-                            <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-                                <i class="fas fa-book text-purple-400 mr-3"></i> Pendidikan Non-Formal
-                            </h3>
-                            <ul class="space-y-3">
-                                <li class="flex items-center text-gray-300">
-                                    <i class="fas fa-circle text-purple-400 text-xs mr-3"></i>
-                                    Ponpes Awwaliah Al Asiah
-                                </li>
-                                <li class="flex items-center text-gray-300">
-                                    <i class="fas fa-circle text-purple-400 text-xs mr-3"></i>
-                                    Ponpes Salafiah Nurut Taqwa
-                                </li>
-                                <li class="flex items-center text-gray-300">
-                                    <i class="fas fa-circle text-purple-400 text-xs mr-3"></i>
-                                    Ponpes Riadul Mubtadiin
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="glass-card rounded-2xl p-8 gradient-border">
-                            <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
-                                <i class="fas fa-certificate text-amber-400 mr-3"></i> Sertifikasi
-                            </h3>
-                            <div class="bg-gradient-to-r from-amber-500/20 to-orange-500/20 rounded-xl p-4 border border-amber-500/30">
-                                <h4 class="text-lg font-semibold text-white mb-1">RISHA Building Structural Assemblies Level 6</h4>
-                                <p class="text-amber-400 text-sm font-medium">BNSP (Badan Nasional Sertifikasi Profesi)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Language Skills -->
-                <div class="glass-card rounded-2xl p-8">
-                    <h3 class="text-2xl font-bold text-white mb-8 text-center">Kemampuan Bahasa</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="text-center group">
-                            <div class="relative w-24 h-24 mx-auto mb-4">
-                                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                                    <path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
-                                    <path class="text-blue-500 group-hover:text-blue-400 transition-colors" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
-                                </svg>
-                                <span class="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white">100%</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white">Indonesia</h4>
-                            <p class="text-gray-400 text-sm">Native</p>
-                        </div>
-
-                        <div class="text-center group">
-                            <div class="relative w-24 h-24 mx-auto mb-4">
-                                <svg class="w-full h-64 transform -rotate-90" viewBox="0 0 36 36">
-                                    <path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
-                                    <path class="text-purple-500 group-hover:text-purple-400 transition-colors" stroke-dasharray="45, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
-                                </svg>
-                                <span class="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white">45%</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white">Inggris</h4>
-                            <p class="text-gray-400 text-sm">Basic</p>
-                        </div>
-
-                        <div class="text-center group">
-                            <div class="relative w-24 h-24 mx-auto mb-4">
-                                <svg class="w-full h-64 transform -rotate-90" viewBox="0 0 36 36">
-                                    <path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
-                                    <path class="text-green-500 group-hover:text-green-400 transition-colors" stroke-dasharray="30, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
-                                </svg>
-                                <span class="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white">30%</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white">Arab</h4>
-                            <p class="text-gray-400 text-sm">Basic</p>
-                        </div>
-
-                        <div class="text-center group">
-                            <div class="relative w-24 h-24 mx-auto mb-4">
-                                <svg class="w-full h-64 transform -rotate-90" viewBox="0 0 36 36">
-                                    <path class="text-gray-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
-                                    <path class="text-amber-500 group-hover:text-amber-400 transition-colors" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
-                                </svg>
-                                <span class="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white">85%</span>
-                            </div>
-                            <h4 class="text-lg font-semibold text-white">Sunda</h4>
-                            <p class="text-gray-400 text-sm">Fluent</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section-content">
-            <div class="py-12">
-                <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Contact</h2>
-                <p class="text-gray-400 text-center mb-16 max-w-2xl mx-auto">Tertarik untuk berkolaborasi? Hubungi saya melalui salah satu channel di bawah ini</p>
-                
-                <div class="max-w-4xl mx-auto">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Contact Info Cards -->
-                        <div class="space-y-6">
-                            <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="window.location.href='https://maps.google.com/?q=Bogor,Jawa+Barat'">
-                                <div class="flex items-center">
-                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                                        <i class="fas fa-map-marker-alt text-white text-2xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Lokasi</h3>
-                                        <p class="text-gray-400">Bogor, Jawa Barat, Indonesia</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="window.location.href='mailto:fadilahikhsann@gmail.com'">
-                                <div class="flex items-center">
-                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                                        <i class="fas fa-envelope text-white text-2xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Email</h3>
-                                        <p class="text-gray-400 group-hover:text-purple-400 transition-colors">fadilahikhsann@gmail.com</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="window.location.href='tel:083874092236'">
-                                <div class="flex items-center">
-                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                                        <i class="fas fa-phone text-white text-2xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">Telepon</h3>
-                                        <p class="text-gray-400 group-hover:text-green-400 transition-colors">0838-7409-2236</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="glass-card rounded-2xl p-6 hover-lift group cursor-pointer" onclick="window.open('https://linkedin.com/in/fadilahkhsann', '_blank')">
-                                <div class="flex items-center">
-                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
-                                        <i class="fab fa-linkedin-in text-white text-2xl"></i>
-                                    </div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold text-white">LinkedIn</h3>
-                                        <p class="text-gray-400 group-hover:text-blue-400 transition-colors">linkedin.com/in/fadilahkhsann</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Contact Form -->
-                        <div class="glass-card rounded-2xl p-8">
-                            <h3 class="text-2xl font-bold text-white mb-6">Kirim Pesan</h3>
-                            <form onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah terkirim.');" class="space-y-4">
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-300 mb-2">Nama</label>
-                                    <input type="text" required class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="Nama Anda">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                                    <input type="email" required class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="email@example.com">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium text-gray-300 mb-2">Pesan</label>
-                                    <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-800/50 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none" placeholder="Tulis pesan Anda..."></textarea>
-                                </div>
-                                <button type="submit" class="w-full py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-semibold text-white hover:shadow-lg hover:shadow-blue-500/50 transform hover:scale-[1.02] transition-all duration-300">
-                                    <i class="fas fa-paper-plane mr-2"></i> Kirim Pesan
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <!-- Map Placeholder -->
-                    <div class="mt-8 glass-card rounded-2xl p-2 overflow-hidden">
-                        <div class="w-full h-64 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
-                            <div class="absolute inset-0 opacity-20">
-                                <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 40px 40px;"></div>
-                            </div>
-                            <div class="text-center z-10">
-                                <i class="fas fa-map-marked-alt text-6xl text-blue-500 mb-4 animate-float"></i>
-                                <p class="text-gray-300 text-lg">Bogor, Jawa Barat</p>
-                                <p class="text-gray-500 text-sm mt-2">Indonesia</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="glass-nav border-t border-white/10 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <span class="text-xl font-bold gradient-text">Fadilah Ikhsan S.H </span>
-                    <p class="text-gray-400 text-sm mt-1">Operations, Data & Field Coordination Specialist</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="mailto:fadilahikhsann@gmail.com" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fas fa-envelope text-xl"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/fadilahkhsann" target="_blank" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fab fa-linkedin text-xl"></i>
-                    </a>
-                    <a href="tel:083874092236" class="text-gray-400 hover:text-white transition-colors">
-                        <i class="fas fa-phone text-xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
-                <p>&copy; 2024 Fadilah Ikhsan, S.H. All rights reserved.</p>
-            </div>
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section">
+  <canvas id="pc"></canvas>
+  <div class="con">
+    <div class="sh"><div class="stag">Portfolio</div><h2 class="stit">Proyek & <span>Pengalaman</span></h2><p class="sdesc">Project nyata dari pengalaman kerja — semua dapat diverifikasi</p></div>
+    <div class="pgrid">
+      <!-- FEATURED -->
+      <div class="fc">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span class="lb"><span class="ld"></span>Live & Deployed</span>
+            <span style="font-size:.7rem;font-weight:600;color:var(--teal);background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.2);padding:4px 10px;border-radius:20px;">Web Development</span>
+          </div>
+          <div class="ptit" style="font-size:1.2rem;margin-bottom:6px;">Website Komunitas Guyub RW 10</div>
+          <div class="pco">Community Project — Cicadas, Gunung Putri, Bogor</div>
+          <p class="pds">Membangun platform digital komunitas dari nol — sistem berita & pengumuman, direktori UMKM warga, database kependudukan, kalender kegiatan, form layanan online, struktur organisasi, dan admin panel. Dibangun mandiri dengan HTML, CSS, JavaScript dan di-deploy via Netlify.</p>
+          <div class="ptags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">Netlify</span><span class="ptag">Admin Panel</span></div>
         </div>
-    </footer>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex-shrink:0;">
+          <a href="https://projectguyub10.netlify.app/" target="_blank" class="bp"><i class="fas fa-external-link-alt"></i> Lihat Website</a>
+          <div style="font-size:.72rem;color:var(--muted);max-width:160px;line-height:1.5;">Website aktif & bisa dikunjungi langsung</div>
+        </div>
+      </div>
+      <!-- CARD 1 -->
+      <div class="pcard">
+        <div class="pct"><div class="pic" style="background:rgba(45,212,191,.1);color:var(--teal)"><i class="fas fa-clipboard-list"></i></div><span class="pb" style="background:rgba(45,212,191,.08);color:var(--teal);border:1px solid rgba(45,212,191,.2)">Field Survey</span></div>
+        <div class="ptit">Koordinasi Survei Lapangan Multi-Project</div>
+        <div class="pco">Cyrus Network · 2021–2023</div>
+        <p class="pds">Memimpin koordinasi 20–30 enumerator dalam 20+ project survei wawancara di Jabodetabek & Banten. Setiap project berlangsung 4–7 hari dengan klien dari berbagai lembaga survei nasional.</p>
+        <div class="pdet" id="d1"><ul><li>Koordinasi enumerator di Jabodetabek–Banten</li><li>20+ project survei berbeda lembaga (2021–2023)</li><li>Monitoring responden & validasi data lapangan</li><li>QC hasil wawancara sebelum input sistem</li><li>Akurasi rata-rata ±96% vs real count</li></ul><a href="https://www.csis.or.id/publication/rilis-pers-quick-count-csis-indonesia-dan-cyrus-network/" target="_blank" style="font-size:.73rem;color:var(--teal);text-decoration:none;display:block;margin-bottom:12px;"><i class="fas fa-external-link-alt" style="font-size:.65rem"></i> Lihat referensi akurasi</a></div>
+        <div class="ptags"><span class="ptag">Field Survey</span><span class="ptag">Leadership</span><span class="ptag">QC</span><span class="ptag">Jabodetabek</span></div>
+        <button class="tbtn" onclick="td('d1',this)">Lihat detail →</button>
+      </div>
+      <!-- CARD 2 -->
+      <div class="pcard">
+        <div class="pct"><div class="pic" style="background:rgba(96,165,250,.1);color:#60A5FA"><i class="fas fa-map-marked-alt"></i></div><span class="pb" style="background:rgba(96,165,250,.08);color:#60A5FA;border:1px solid rgba(96,165,250,.2)">GIS Mapping</span></div>
+        <div class="ptit">Mobile Mapping Jawa–Bali</div>
+        <div class="pco">PT GPS Lands Indosolution · Mar–Okt 2025</div>
+        <p class="pds">Pengumpulan data jalan & geografis di seluruh Pulau Jawa dan Bali menggunakan GPS device dan kamera GoPro — mirip proses pengambilan data Google Maps secara langsung di lapangan.</p>
+        <div class="pdet" id="d2"><ul><li>Coverage data: seluruh Pulau Jawa & Bali</li><li>Operasional GPS device & GoPro di lapangan</li><li>Verifikasi koordinat dan akurasi data geografis</li><li>Pelaporan data terstruktur untuk project pemetaan</li></ul></div>
+        <div class="ptags"><span class="ptag">GPS/GIS</span><span class="ptag">Field Mapping</span><span class="ptag">Jawa–Bali</span></div>
+        <button class="tbtn" onclick="td('d2',this)">Lihat detail →</button>
+      </div>
+      <!-- CARD 3 -->
+      <div class="pcard">
+        <div class="pct"><div class="pic" style="background:rgba(245,158,11,.1);color:var(--gold)"><i class="fas fa-mobile-alt"></i></div><span class="pb" style="background:rgba(245,158,11,.08);color:var(--gold);border:1px solid rgba(245,158,11,.2)">Fintech</span></div>
+        <div class="ptit">Digital Transaction Support</div>
+        <div class="pco">PT Pegadaian (Persero) · Nov–Des 2025</div>
+        <p class="pds">Membantu 300+ nasabah dalam adopsi aplikasi Pegadaian Digital Service dan berkontribusi pada penjualan 100+ gram produk emas selama 2 bulan program magang MAGENTA.</p>
+        <div class="pdet" id="d3"><ul><li>300+ nasabah berhasil onboarding ke aplikasi digital</li><li>Kontribusi penjualan 100+ gram produk emas</li><li>Dokumentasi data nasabah yang akurat</li><li>Pendampingan transaksi dengan pendekatan user-friendly</li></ul></div>
+        <div class="ptags"><span class="ptag">Customer Support</span><span class="ptag">Digital Onboarding</span><span class="ptag">Fintech</span></div>
+        <button class="tbtn" onclick="td('d3',this)">Lihat detail →</button>
+      </div>
+      <!-- CARD 4 -->
+      <div class="pcard">
+        <div class="pct"><div class="pic" style="background:rgba(74,222,128,.1);color:#4ADE80"><i class="fas fa-file-excel"></i></div><span class="pb" style="background:rgba(74,222,128,.08);color:#4ADE80;border:1px solid rgba(74,222,128,.2)">Reporting</span></div>
+        <div class="ptit">Laporan & Dashboard Operasional</div>
+        <div class="pco">PT Inkamnet Nexera Technology · 2024–2025</div>
+        <p class="pds">Menyusun laporan operasional mingguan & bulanan berbasis Excel — rekap data customer, monitoring inventaris, dan tracking aktivitas tim teknis menggunakan pivot table & conditional formatting.</p>
+        <div class="pdet" id="d4"><ul><li>Rekap & validasi data customer dan inventaris jaringan</li><li>Pivot table & conditional formatting untuk visualisasi</li><li>Dashboard monitoring aktivitas tim teknis</li><li>Distribusi laporan rutin ke manajemen</li></ul></div>
+        <div class="ptags"><span class="ptag">Excel</span><span class="ptag">Pivot Table</span><span class="ptag">Dashboard</span></div>
+        <button class="tbtn" onclick="td('d4',this)">Lihat detail →</button>
+      </div>
+      <!-- CARD 5 -->
+      <div class="pcard">
+        <div class="pct"><div class="pic" style="background:rgba(167,139,250,.1);color:#A78BFA"><i class="fas fa-chart-bar"></i></div><span class="pb" style="background:rgba(167,139,250,.08);color:#A78BFA;border:1px solid rgba(167,139,250,.2)">Demo</span></div>
+        <div class="ptit">Excel Dashboard — Demo Showcase</div>
+        <div class="pco">Personal Project</div>
+        <p class="pds">Dummy dashboard monitoring operasional untuk showcase kemampuan Excel — pivot table, conditional formatting, chart visualisasi, dan summary KPI. Data dummy, struktur mencerminkan penggunaan nyata di tempat kerja.</p>
+        <div class="ptags"><span class="ptag">Excel</span><span class="ptag">Dashboard</span><span class="ptag">Pivot Table</span><span class="ptag">Demo</span></div>
+        <div style="margin-top:10px;font-size:.72rem;color:var(--muted);font-style:italic;">Coming soon — sedang disiapkan</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Section Navigation
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('.section-content');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show selected section
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-            
-            // Update nav links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active', 'text-white');
-                link.classList.add('text-gray-300');
-                if (link.getAttribute('data-section') === sectionId) {
-                    link.classList.add('active', 'text-white');
-                    link.classList.remove('text-gray-300');
-                }
-            });
-            
-            // Close mobile menu if open
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-        }
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <canvas id="ec"></canvas>
+  <div class="con">
+    <div class="sh"><div class="stag">Karir</div><h2 class="stit">Experience</h2><p class="sdesc">Pengalaman kerja dari berbagai sektor yang membangun kompetensi operasional, lapangan, dan teknologi</p></div>
+    <div class="egrid">
+      <div class="ebl" style="grid-column:span 2">
+        <div class="eblt"><i class="fas fa-briefcase"></i> Pengalaman Kerja</div>
+        <div class="tl">
+          <div class="tli"><div class="tld"></div><div class="tlp">Nov 2025 – Des 2025</div><div class="tlr">Digital Representative</div><div class="tlc">PT Pegadaian (Persero) — MAGENTA Internship</div><ul class="tldesc"><li>Membantu 300+ nasabah adopsi aplikasi Pegadaian Digital Service</li><li>Berkontribusi penjualan 100+ gram produk emas</li><li>Dokumentasi data nasabah yang akurat & terstruktur</li></ul></div>
+          <div class="tli"><div class="tld" style="background:var(--gold)"></div><div class="tlp" style="color:var(--gold)">Mar 2025 – Okt 2025</div><div class="tlr">Field Mapping Specialist</div><div class="tlc">PT GPS Lands Indosolution</div><ul class="tldesc"><li>Pengumpulan data jalan & geografis seluruh Pulau Jawa & Bali</li><li>Operasional GPS device & kamera GoPro di lapangan</li><li>Verifikasi akurasi data geografis & pelaporan terstruktur</li></ul></div>
+          <div class="tli"><div class="tld" style="background:#60A5FA"></div><div class="tlp" style="color:#60A5FA">Jan 2024 – Feb 2025</div><div class="tlr">Administrative Staff</div><div class="tlc">PT Inkamnet Nexera Technology</div><ul class="tldesc"><li>Administrasi dokumen operasional & data customer jaringan</li><li>Rekap, validasi, dan monitoring data inventaris</li><li>Koordinasi tim teknis, vendor, dan mitra</li><li>Assist instalasi jaringan dasar saat dibutuhkan</li></ul></div>
+          <div class="tli"><div class="tld" style="background:#F472B6"></div><div class="tlp" style="color:#F472B6">2021 – 2023</div><div class="tlr">Field Coordinator (Freelance / Project-Based)</div><div class="tlc">Cyrus Network</div><ul class="tldesc"><li>Koordinasi 20–30 enumerator dalam 20+ project survei</li><li>Cakupan wilayah: Jabodetabek & Banten, berbagai lembaga</li><li>Quality control & validasi data lapangan</li><li>Akurasi hasil survei rata-rata ±96% vs real count</li></ul></div>
+        </div>
+      </div>
+      <div class="ebl" style="grid-column:span 2">
+        <div class="eblt"><i class="fas fa-users"></i> Pengalaman Organisasi</div>
+        <div class="og" style="grid-template-columns:1fr 1fr 1fr">
+          <div class="oc"><i class="fas fa-user-tie"></i><h4>Sekretaris Bidang Kewirausahaan & Pengembangan Profesi</h4><p>HMI · 2021–2022</p></div>
+          <div class="oc"><i class="fas fa-handshake"></i><h4>Sekretaris Bidang Eksternal</h4><p>HMJ Hukum Keluarga Islam · 2020–2021</p></div>
+          <div class="oc"><i class="fas fa-mosque"></i><h4>Sekretaris Bidang Keagamaan</h4><p>Karang Taruna Desa Cicadas · 2025–2030</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        }
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <canvas id="edu"></canvas>
+  <div class="con">
+    <div class="sh"><div class="stag">Pendidikan</div><h2 class="stit">Education & <span>Certification</span></h2><p class="sdesc">Latar belakang pendidikan formal, non-formal, sertifikasi profesional, dan kemampuan bahasa</p></div>
+    <div class="edgrid">
+      <div>
+        <div class="edcard"><div class="edct"><i class="fas fa-graduation-cap"></i> Pendidikan Formal</div><div class="edi"><div class="edd">S1 Hukum (Bachelor of Law)</div><div class="eds">UIN Sultan Maulana Hasanudin Banten</div><div class="edp">Agustus 2019 – Desember 2023</div><span class="edg">IPK: 3.62</span></div><div class="edi" style="margin-top:20px"><div class="edd">Teknik Komputer & Jaringan</div><div class="eds">SMK Putra Pelita Tenjolaya</div><div class="edp">2016 – 2019</div></div></div>
+        <div class="edcard"><div class="edct"><i class="fas fa-book-open"></i> Pendidikan Non-Formal</div><div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;align-items:center;gap:10px"><div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0"></div><span style="font-size:.85rem;color:var(--muted2)">Ponpes Awwaliah Al Asiah</span></div><div style="display:flex;align-items:center;gap:10px"><div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0"></div><span style="font-size:.85rem;color:var(--muted2)">Ponpes Salafiah Nurut Taqwa</span></div><div style="display:flex;align-items:center;gap:10px"><div style="width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0"></div><span style="font-size:.85rem;color:var(--muted2)">Ponpes Riadul Mubtadiin</span></div></div></div>
+      </div>
+      <div>
+        <div class="edcard"><div class="edct"><i class="fas fa-certificate"></i> Sertifikasi</div><div class="cc"><div class="cct">Risha Building Structural Assemblies — Level 6</div><div class="cci">BNSP (Badan Nasional Sertifikasi Profesi)</div><div class="ccp">Terbit: Maret 2025 · Berlaku 5 Tahun</div></div></div>
+        <div class="edcard"><div class="edct" style="margin-bottom:0"><i class="fas fa-language"></i> Kemampuan Bahasa</div>
+          <div class="lgg">
+            <div class="lgi"><div class="lgc"><svg viewBox="0 0 36 36"><circle class="bgt" cx="18" cy="18" r="15.9"/><circle class="prt" cx="18" cy="18" r="15.9" stroke="var(--teal)" stroke-dasharray="100 100"/></svg><div class="lbl">100%</div></div><div class="lgn">Indonesia</div><div class="lgl">Native</div></div>
+            <div class="lgi"><div class="lgc"><svg viewBox="0 0 36 36"><circle class="bgt" cx="18" cy="18" r="15.9"/><circle class="prt" cx="18" cy="18" r="15.9" stroke="var(--gold)" stroke-dasharray="85 100"/></svg><div class="lbl">85%</div></div><div class="lgn">Sunda</div><div class="lgl">Fluent</div></div>
+            <div class="lgi"><div class="lgc"><svg viewBox="0 0 36 36"><circle class="bgt" cx="18" cy="18" r="15.9"/><circle class="prt" cx="18" cy="18" r="15.9" stroke="#60A5FA" stroke-dasharray="45 100"/></svg><div class="lbl">45%</div></div><div class="lgn">Inggris</div><div class="lgl">Basic</div></div>
+            <div class="lgi"><div class="lgc"><svg viewBox="0 0 36 36"><circle class="bgt" cx="18" cy="18" r="15.9"/><circle class="prt" cx="18" cy="18" r="15.9" stroke="#4ADE80" stroke-dasharray="30 100"/></svg><div class="lbl">30%</div></div><div class="lgn">Arab</div><div class="lgl">Basic</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Toggle Project Details
-        function toggleProjectDetails(element) {
-            const details = element.querySelector('.project-details');
-            const toggleText = element.querySelector('.toggle-text');
-            
-            if (details.classList.contains('hidden')) {
-                details.classList.remove('hidden');
-                details.classList.add('animate-fade-in');
-                toggleText.textContent = 'Klik untuk sembunyikan';
-            } else {
-                details.classList.add('hidden');
-                toggleText.textContent = 'Klik untuk detail';
-            }
-        }
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="ww"><svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg"><path fill="var(--teal)" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L0,120Z"><animate attributeName="d" dur="8s" repeatCount="indefinite" values="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L0,120Z;M0,48L80,58.7C160,69,320,91,480,90.7C640,91,800,69,960,58.7C1120,48,1280,48,1360,48L1440,48L1440,120L0,120Z;M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L0,120Z"/></path></svg></div>
+  <div class="con">
+    <div class="sh"><div class="stag">Kontak</div><h2 class="stit">Get in <span>Touch</span></h2><p class="sdesc">Tertarik berkolaborasi atau ada posisi yang cocok? Mari terhubung</p></div>
+    <div class="cgrid">
+      <div class="cinfo">
+        <a class="ccard" href="https://maps.google.com/?q=Bogor,Jawa+Barat" target="_blank"><div class="cico" style="background:rgba(45,212,191,.1);color:var(--teal)"><i class="fas fa-map-marker-alt"></i></div><div><h3>Lokasi</h3><p>Bogor, Jawa Barat, Indonesia</p></div></a>
+        <a class="ccard" href="mailto:fadilahikhsann@gmail.com"><div class="cico" style="background:rgba(167,139,250,.1);color:#A78BFA"><i class="fas fa-envelope"></i></div><div><h3>Email</h3><p>fadilahikhsann@gmail.com</p></div></a>
+        <a class="ccard" href="tel:083874092236"><div class="cico" style="background:rgba(74,222,128,.1);color:#4ADE80"><i class="fas fa-phone"></i></div><div><h3>Telepon / WhatsApp</h3><p>0838-7409-2236</p></div></a>
+        <a class="ccard" href="https://linkedin.com/in/fadilahikhsan" target="_blank"><div class="cico" style="background:rgba(96,165,250,.1);color:#60A5FA"><i class="fab fa-linkedin-in"></i></div><div><h3>LinkedIn</h3><p>linkedin.com/in/fadilahikhsan</p></div></a>
+        <a class="ccard" href="https://projectguyub10.netlify.app/" target="_blank"><div class="cico" style="background:rgba(245,158,11,.1);color:var(--gold)"><i class="fas fa-globe"></i></div><div><h3>Live Project</h3><p>projectguyub10.netlify.app</p></div></a>
+      </div>
+      <div class="cfw">
+        <div class="cft">Kirim Pesan</div>
+        <div class="fg"><label>Nama</label><input type="text" id="fn" placeholder="Nama Anda"></div>
+        <div class="fg"><label>Email</label><input type="email" id="fe" placeholder="email@example.com"></div>
+        <div class="fg"><label>Pesan</label><textarea id="fm" rows="4" placeholder="Tulis pesan Anda..."></textarea></div>
+        <button class="bp" style="width:100%;justify-content:center" onclick="sm()"><i class="fas fa-paper-plane"></i> Kirim via WhatsApp</button>
+        <p style="font-size:.72rem;color:var(--muted);text-align:center;margin-top:10px">Pesan diteruskan via WhatsApp</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Smooth scroll behavior for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
+<footer>
+  <div class="fi">
+    <div class="flo">Fadilah Ikhsan<span>, S.H.</span></div>
+    <div style="font-size:.78rem;color:var(--muted)">Operations & Administrative Coordinator</div>
+    <div class="fls">
+      <a href="mailto:fadilahikhsann@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/fadilahikhsan" target="_blank">LinkedIn</a>
+      <a href="https://projectguyub10.netlify.app/" target="_blank">Live Project</a>
+      <a href="CV_Fadilah_Ikhsan.pdf" download>Download CV</a>
+    </div>
+    <div class="fcp">© 2025 Fadilah Ikhsan, S.H. — Built with HTML, CSS & JavaScript</div>
+  </div>
+</footer>
 
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg');
-                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
-            } else {
-                navbar.classList.remove('shadow-lg');
-                navbar.style.background = 'rgba(15, 23, 42, 0.8)';
-            }
-        });
+<script>
+function ss(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  const t=document.getElementById(id);
+  if(t){t.classList.add('active');t.classList.remove('sf');void t.offsetWidth;t.classList.add('sf');window.scrollTo({top:0,behavior:'smooth'});}
+  document.querySelectorAll('.nls a').forEach(a=>a.classList.toggle('active',a.getAttribute('data-s')===id));
+  document.getElementById('mm').classList.remove('open');
+  if(id==='home')startCounters();
+  setTimeout(initCanvas,100);
+}
+function tm(){document.getElementById('mm').classList.toggle('open');}
+window.addEventListener('scroll',()=>{const e=document.getElementById('sp');const h=document.documentElement.scrollHeight-window.innerHeight;e.style.width=h>0?(window.scrollY/h*100)+'%':'0%';});
 
-        // Animate skill bars when visible
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
+// TYPING
+const txts=['Operations & Administrative Coordinator','Field-to-Office Professional','AI-Assisted Workflow Specialist'];
+let ti=0,ci=0,dl=false;
+const te=document.getElementById('tt');
+function type(){
+  const cur=txts[ti];
+  if(!dl){te.textContent=cur.substring(0,ci+1);ci++;if(ci===cur.length){dl=true;setTimeout(type,2200);return;}}
+  else{te.textContent=cur.substring(0,ci-1);ci--;if(ci===0){dl=false;ti=(ti+1)%txts.length;}}
+  setTimeout(type,dl?40:85);
+}
+type();
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillBars = entry.target.querySelectorAll('.skill-bar');
-                    skillBars.forEach(bar => {
-                        const width = bar.style.width;
-                        bar.style.width = '0';
-                        setTimeout(() => {
-                            bar.style.width = width;
-                        }, 100);
-                    });
-                }
-            });
-        }, observerOptions);
+// COUNTERS
+function startCounters(){
+  document.querySelectorAll('.sn').forEach(el=>{
+    const tg=parseInt(el.getAttribute('data-t'));
+    const sfx=tg>=100?'+':tg===96?'%':'+';
+    let cur=0;const step=tg/50;
+    const tmr=setInterval(()=>{cur=Math.min(cur+step,tg);el.textContent=Math.floor(cur)+sfx;if(cur>=tg)clearInterval(tmr);},30);
+  });
+}
+startCounters();
 
-        // Observe skills section
-        const skillsSection = document.getElementById('skills');
-        if (skillsSection) {
-            observer.observe(skillsSection);
-        }
+// TOGGLE DETAIL
+function td(id,btn){
+  const el=document.getElementById(id);
+  if(el){el.classList.toggle('open');btn.textContent=el.classList.contains('open')?'Sembunyikan ↑':'Lihat detail →';}
+}
 
-        // Initialize animations on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add initial animation classes
-            document.querySelectorAll('.hover-lift').forEach((el, index) => {
-                el.style.animationDelay = `${index * 0.1}s`;
-            });
-        });
+// WHATSAPP
+function sm(){
+  const n=document.getElementById('fn').value.trim();
+  const e=document.getElementById('fe').value.trim();
+  const m=document.getElementById('fm').value.trim();
+  if(!n||!m){alert('Mohon isi nama dan pesan terlebih dahulu.');return;}
+  const txt=`Halo Fadilah, saya ${n}${e?' ('+e+')':''}.%0A%0A${encodeURIComponent(m)}`;
+  window.open(`https://wa.me/6283874092236?text=${txt}`,'_blank');
+}
 
-        // Handle window resize for mobile menu
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            }
-        });
-    </script>
+// CANVAS
+function initCanvas(){
+  initHC();initSKC();initPC();initEC();initEDC();
+}
+
+function initHC(){
+  const c=document.getElementById('hc');if(!c)return;
+  const ctx=c.getContext('2d');c.width=c.offsetWidth;c.height=c.offsetHeight;
+  const pts=Array.from({length:55},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+0.3,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,o:Math.random()*.4+.08}));
+  function draw(){
+    if(!document.getElementById('home').classList.contains('active'))return;
+    ctx.clearRect(0,0,c.width,c.height);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=c.width;if(p.x>c.width)p.x=0;if(p.y<0)p.y=c.height;if(p.y>c.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(45,212,191,${p.o})`;ctx.fill();});
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<100){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(45,212,191,${.06*(1-d/100)})`;ctx.lineWidth=.5;ctx.stroke();}}
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+function initSKC(){
+  const c=document.getElementById('skc');if(!c)return;
+  const ctx=c.getContext('2d');c.width=c.offsetWidth;c.height=c.offsetHeight;
+  const ds=Array.from({length:35},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1,vy:-(Math.random()*.3+.1),o:Math.random()*.25+.05}));
+  function draw(){
+    if(!document.getElementById('skills').classList.contains('active'))return;
+    ctx.clearRect(0,0,c.width,c.height);
+    ds.forEach(d=>{d.y+=d.vy;if(d.y<-10)d.y=c.height+10;ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle=`rgba(45,212,191,${d.o})`;ctx.fill();});
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+function initPC(){
+  const c=document.getElementById('pc');if(!c)return;
+  const ctx=c.getContext('2d');c.width=c.offsetWidth;c.height=c.offsetHeight;
+  let t=0;
+  function draw(){
+    if(!document.getElementById('portfolio').classList.contains('active'))return;
+    ctx.clearRect(0,0,c.width,c.height);
+    const x=c.width*.5+Math.sin(t*.5)*c.width*.3,y=c.height*.3+Math.cos(t*.4)*c.height*.2;
+    const g=ctx.createRadialGradient(x,y,0,x,y,c.width*.5);
+    g.addColorStop(0,'rgba(45,212,191,0.04)');g.addColorStop(1,'rgba(45,212,191,0)');
+    ctx.fillStyle=g;ctx.fillRect(0,0,c.width,c.height);t+=.008;
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+function initEC(){
+  const c=document.getElementById('ec');if(!c)return;
+  const ctx=c.getContext('2d');c.width=c.offsetWidth;c.height=c.offsetHeight;
+  let o=0;
+  function draw(){
+    if(!document.getElementById('experience').classList.contains('active'))return;
+    ctx.clearRect(0,0,c.width,c.height);
+    ctx.strokeStyle='rgba(45,212,191,0.06)';ctx.lineWidth=1;
+    const g=60;
+    for(let x=(o%g)-g;x<c.width;x+=g){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,c.height);ctx.stroke();}
+    for(let y=0;y<c.height;y+=g){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(c.width,y);ctx.stroke();}
+    o+=.3;requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+function initEDC(){
+  const c=document.getElementById('edu');if(!c)return;
+  const ctx=c.getContext('2d');c.width=c.offsetWidth;c.height=c.offsetHeight;
+  const sh=Array.from({length:10},()=>({x:Math.random()*c.width,y:Math.random()*c.height,s:Math.random()*40+10,r:Math.random()*Math.PI*2,vr:(Math.random()-.5)*.005,vy:-(Math.random()*.2+.05),o:Math.random()*.07+.02}));
+  function draw(){
+    if(!document.getElementById('education').classList.contains('active'))return;
+    ctx.clearRect(0,0,c.width,c.height);
+    sh.forEach(s=>{s.y+=s.vy;s.r+=s.vr;if(s.y<-60)s.y=c.height+60;ctx.save();ctx.translate(s.x,s.y);ctx.rotate(s.r);ctx.strokeStyle=`rgba(245,158,11,${s.o})`;ctx.lineWidth=1;ctx.strokeRect(-s.s/2,-s.s/2,s.s,s.s);ctx.restore();});
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+window.addEventListener('load',initCanvas);
+window.addEventListener('resize',()=>{['hc','skc','pc','ec','edu'].forEach(id=>{const c=document.getElementById(id);if(c){c.width=c.offsetWidth;c.height=c.offsetHeight;}});});
+</script>
 </body>
 </html>
